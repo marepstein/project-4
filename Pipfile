@@ -8,6 +8,8 @@ pylint = "*"
 
 [packages]
 django = "*"
+pyjwt = "*"
+djangorestframework = "*"
 
 [requires]
 python_version = "3.7"
