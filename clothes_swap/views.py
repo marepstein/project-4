@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from rest_framework.status import HTTP_201_CREATED, HTTP_422_UNPROCESSABLE_ENTITY, HTTP_204_NO_CONTENT, HTTP_401_UNAUTHORIZED
 from .models import Item
-from .serializers import ItemSerializer
+from .serializers import ItemSerializer, SwapRequesterSerializer, PopulatedItemSerializer
 
 class ItemListView(APIView):
 
@@ -11,7 +11,7 @@ class ItemListView(APIView):
 
     def get(self, _request):
       items = Item.objects.all()
-      serialized_items = ItemSerializer(items, many=True)
+      serialized_items = PopulatedItemSerializer(items, many=True)
       return Response(serialized_items.data)
 
     def post(self, request):
@@ -28,7 +28,7 @@ class ItemDetailView(APIView):
 
     def get(self, _request, pk): 
         item = Item.objects.get(pk=pk)
-        serialized_item = ItemSerializer(item)
+        serialized_item = PopulatedItemSerializer(item)
         return Response(serialized_item.data)
 
     def put(self, request, pk):
@@ -42,22 +42,61 @@ class ItemDetailView(APIView):
           return Response(updated_item.data)
         return Response(updated_item.errors, status=HTTP_422_UNPROCESSABLE_ENTITY)
 
-class SwapDetailView(APIView):
+# need to find a way to limit how many times you can ask to swap!!
+
+class SwapListView(APIView):
 
     permission_classes = (IsAuthenticated, )
 
-    def put(self, request, pk):
-        item = Item.objects.get(pk=pk)
-        # request.data['owner'] = request.user.id
-        # serialized_item = ItemSerializer(item)
-        
-        if item.owner.id == request.user.id:
-          return Response(status=HTTP_401_UNAUTHORIZED)
-        item.swap_requesters.set([2])
-        print(item.swap_requesters)
-        print(type(item.swap_requesters))
-        updated_item = ItemSerializer(item, data=request.data)
-        if updated_item.is_valid():
-          updated_item.save()
-          return Response(updated_item.data)
-        return Response(Response(updated_item.errors, status=HTTP_422_UNPROCESSABLE_ENTITY))
+    def post(self, request, pk):
+      request.data['requester'] = request.user.id
+      request.data['item'] = pk
+      swap_requester = SwapRequesterSerializer(data=request.data)
+      if swap_requester.is_valid(): 
+          swap_requester.save()
+          item = Item.objects.get(pk=pk)
+          serialized_item = PopulatedItemSerializer(item)
+          return Response(serialized_item.data)
+      return Response(swap_requester.errors, status=HTTP_422_UNPROCESSABLE_ENTITY)
+
+# class SwapDetailView(APIView):
+
+#     permission_classes = (IsAuthenticated, )
+
+#     def delete()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # def put(self, request, pk):
+    #     item = Item.objects.get(pk=pk)
+    #     # request.data['owner'] = request.user.id
+    #     # serialized_item = ItemSerializer(item)
+    #     if item.owner.id == request.user.id:
+    #       return Response(status=HTTP_401_UNAUTHORIZED)
+    #     swapper_id = request.user.id
+    #     item.swap_requesters.set([swapper_id])
+    #     # item.save()
+    #     # request.data = item
+    #     updated_item = ItemSerializer(item, data=request.data)
+    #     if updated_item.is_valid():
+    #       updated_item.save()
+    #       return Response(updated_item.data)
+    #     return Response(Response(updated_item.errors, status=HTTP_422_UNPROCESSABLE_ENTITY))
