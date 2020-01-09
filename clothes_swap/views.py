@@ -32,15 +32,32 @@ class ItemDetailView(APIView):
         return Response(serialized_item.data)
 
     def put(self, request, pk):
+        request.data['owner'] = request.user.id
         item = Item.objects.get(pk=pk)
+        if item.owner.id != request.user.id:  # quick check to see if the user making the request is the same user who created the post, if not don't allow updates
+            return Response(status=HTTP_401_UNAUTHORIZED)
         updated_item = ItemSerializer(item, data=request.data)
+        if updated_item.is_valid():
+          updated_item.save()
+          return Response(updated_item.data)
+        return Response(updated_item.errors, status=HTTP_422_UNPROCESSABLE_ENTITY)
+
+class SwapDetailView(APIView):
+
+    permission_classes = (IsAuthenticated, )
+
+    def put(self, request, pk):
+        item = Item.objects.get(pk=pk)
+        # request.data['owner'] = request.user.id
+        # serialized_item = ItemSerializer(item)
+        
         if item.owner.id == request.user.id:
-          request.data['owner'] = request.user.id
-          if updated_item.is_valid():
-            updated_item.save()
-            return Response(updated_item.data)
-          return Response(updated_item.errors, status=HTTP_422_UNPROCESSABLE_ENTITY)
-        # if item.owner.id != request.user.id:
-        #     updated_item.save()
-        #     return Response(updated_item.data)
-        #   return Response(updated_item.errors, status=HTTP_422_UNPROCESSABLE_ENTITY)
+          return Response(status=HTTP_401_UNAUTHORIZED)
+        item.swap_requesters.set([2])
+        print(item.swap_requesters)
+        print(type(item.swap_requesters))
+        updated_item = ItemSerializer(item, data=request.data)
+        if updated_item.is_valid():
+          updated_item.save()
+          return Response(updated_item.data)
+        return Response(Response(updated_item.errors, status=HTTP_422_UNPROCESSABLE_ENTITY))
