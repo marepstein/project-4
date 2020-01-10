@@ -10,7 +10,6 @@ class Item(models.Model):
     original_price = models.CharField(max_length=10)
     category = models.CharField(max_length=50)
     owner = models.ForeignKey(User, related_name='item', on_delete=models.CASCADE) # the owner of the item.
-    # swap_requesters = models.ManyToManyField(User, related_name='items') # to store the user_ids of the people who want to swap with this item
     is_swapped = models.BooleanField(default=False)
 
     def __str__(self):

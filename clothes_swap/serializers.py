@@ -20,8 +20,8 @@ class ItemSerializer(serializers.ModelSerializer):
   
   class Meta: 
     model = Item
-    fields = ('id', 'image', 'title', 'description', 'size', 'original_price', 'category', 'owner', 'swap_requesters')
-    extra_kwargs = {'swap_requesters': {'required': False}}
+    fields = ('id', 'image', 'title', 'description', 'size', 'original_price', 'category', 'owner', 'swap_requesters', 'is_swapped')
+    extra_kwargs = {'swap_requesters': {'required': False}, 'is_swapped': {'required': False}}
 
 class PopulatedItemSerializer(ItemSerializer):
 
