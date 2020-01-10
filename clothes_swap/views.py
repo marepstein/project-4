@@ -2,7 +2,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from rest_framework.status import HTTP_201_CREATED, HTTP_422_UNPROCESSABLE_ENTITY, HTTP_204_NO_CONTENT, HTTP_401_UNAUTHORIZED
-from .models import Item
+from .models import Item, SwapRequester
 from .serializers import ItemSerializer, SwapRequesterSerializer, PopulatedItemSerializer
 
 class ItemListView(APIView):
@@ -64,44 +64,13 @@ class SwapListView(APIView):
           return Response(serialized_item.data)
       return Response(swap_requester.errors, status=HTTP_422_UNPROCESSABLE_ENTITY)
 
-# class SwapDetailView(APIView):
+class SwapDetailView(APIView):
 
-#     permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, )
 
-#     def delete()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    # def put(self, request, pk):
-    #     item = Item.objects.get(pk=pk)
-    #     # request.data['owner'] = request.user.id
-    #     # serialized_item = ItemSerializer(item)
-    #     if item.owner.id == request.user.id:
-    #       return Response(status=HTTP_401_UNAUTHORIZED)
-    #     swapper_id = request.user.id
-    #     item.swap_requesters.set([swapper_id])
-    #     # item.save()
-    #     # request.data = item
-    #     updated_item = ItemSerializer(item, data=request.data)
-    #     if updated_item.is_valid():
-    #       updated_item.save()
-    #       return Response(updated_item.data)
-    #     return Response(Response(updated_item.errors, status=HTTP_422_UNPROCESSABLE_ENTITY))
+    def delete(self, request, request_id, **kwargs):
+      swap_requester = SwapRequester.objects.get(pk=request_id)
+      if swap_requester.requester.id != request.user.id:
+        return Response(status=HTTP_401_UNAUTHORIZED)
+      swap_requester.delete()
+      return Response(status=HTTP_204_NO_CONTENT)

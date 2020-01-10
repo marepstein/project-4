@@ -13,7 +13,7 @@ class SwapRequesterSerializer(serializers.ModelSerializer):
 
   class Meta: 
     model = SwapRequester
-    fields = ('requester', 'item')
+    fields = ('id', 'requester', 'item')
 
 
 class ItemSerializer(serializers.ModelSerializer):
