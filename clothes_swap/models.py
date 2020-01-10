@@ -18,7 +18,7 @@ class Item(models.Model):
 
 
 class SwapRequester(models.Model):
-    requester = models.ForeignKey(User, related_name='swap_requesters', on_delete=models.CASCADE)
+    requester = models.ForeignKey(User, related_name='swap_requesters', on_delete=models.CASCADE, unique=True)
     item = models.ForeignKey(Item, related_name='swap_requesters', on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):

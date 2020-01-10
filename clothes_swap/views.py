@@ -34,15 +34,20 @@ class ItemDetailView(APIView):
     def put(self, request, pk):
         request.data['owner'] = request.user.id
         item = Item.objects.get(pk=pk)
-        if item.owner.id != request.user.id:  # quick check to see if the user making the request is the same user who created the post, if not don't allow updates
+        if item.owner.id != request.user.id:
             return Response(status=HTTP_401_UNAUTHORIZED)
-        updated_item = ItemSerializer(item, data=request.data)
+        updated_item = PopulatedItemSerializer(item, data=request.data)
         if updated_item.is_valid():
           updated_item.save()
           return Response(updated_item.data)
         return Response(updated_item.errors, status=HTTP_422_UNPROCESSABLE_ENTITY)
 
-# need to find a way to limit how many times you can ask to swap!!
+    def delete(self, request, pk):
+        item = Item.objects.get(pk=pk)
+        if item.owner.id != request.user.id:
+            return Response(status=HTTP_401_UNAUTHORIZED)
+        item.delete()
+        return Response(status=HTTP_204_NO_CONTENT)
 
 class SwapListView(APIView):
 
