@@ -13,8 +13,13 @@ class SwapRequesterSerializer(serializers.ModelSerializer):
 
   class Meta: 
     model = SwapRequester
-    fields = ('id', 'requester', 'item')
+    fields = ('id', 'requester', 'item', 'item_to_swap')
 
+# class SwapApprovalSerializer(serializers.ModelSerializer):
+
+#   class Meta: 
+#     model = SwapApproval
+#     fields = ('id', 'swapper', 'item')
 
 class ItemSerializer(serializers.ModelSerializer):
   
@@ -26,3 +31,10 @@ class ItemSerializer(serializers.ModelSerializer):
 class PopulatedItemSerializer(ItemSerializer):
 
   swap_requesters = SwapRequesterSerializer(many=True)
+
+class SwapItemSerializer(serializers.ModelSerializer):
+  
+  class Meta: 
+    model = Item
+    fields = '__all__'
+    extra_kwargs = {'image': {'required': False}, 'title': {'required': False}, 'description': {'required': False}, 'size': {'required': False}, 'original_price': {'required': False}, 'category': {'required': False}, 'owner': {'required': False}, 'swap_requesters': {'required': False}}

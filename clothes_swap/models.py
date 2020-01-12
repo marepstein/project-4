@@ -9,7 +9,7 @@ class Item(models.Model):
     size = models.CharField(max_length=10)
     original_price = models.CharField(max_length=10)
     category = models.CharField(max_length=50)
-    owner = models.ForeignKey(User, related_name='item', on_delete=models.CASCADE) # the owner of the item.
+    owner = models.ForeignKey(User, related_name='items', on_delete=models.CASCADE) # the owner of the item.
     is_swapped = models.BooleanField(default=False)
 
     def __str__(self):
@@ -17,8 +17,15 @@ class Item(models.Model):
 
 
 class SwapRequester(models.Model):
-    requester = models.ForeignKey(User, related_name='swap_requesters', on_delete=models.CASCADE, unique=True)
+    requester = models.ForeignKey(User, related_name='swap_requesters', on_delete=models.CASCADE)
     item = models.ForeignKey(Item, related_name='swap_requesters', on_delete=models.CASCADE, blank=True, null=True)
+    item_to_swap = models.ForeignKey(Item, related_name='swap_requester', on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
       return self.requester
+
+
+# class SwapApproval(models.Model):
+#     swapper = models.ForeignKey(User, related_name='swap_approval', on_delete=models.CASCADE)
+#     item = models.ForeignKey(Item, related_name='swap_approval', on_delete=models.CASCADE, blank=True, null=True)
+    
