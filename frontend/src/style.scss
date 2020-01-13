@@ -1,0 +1,26 @@
+body, html {
+	font-family: 'Raleway';
+	width: 100%;
+	height: 100%;
+	text-transform: uppercase;
+}
+
+#homeicon {
+	text-transform: uppercase;
+	font-weight: 900;
+	font-size: 20px;
+	text-align: center;
+  width: 100%;
+}
+
+.box {
+	height: 250px;
+	width: 450px;
+	background-color: black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white; 
+	font-weight: 800;
+	border-radius: 0%;
+}

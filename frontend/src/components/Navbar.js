@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Auth from '../lib/auth'
-import { UserContext } from './UserContext'
+// import { UserContext } from './UserContext'
 
 const Navbar = () => {
     
-  const { userInfo } = useContext(UserContext)
+  // const { userInfo } = useContext(UserContext)
 	
   
   const handleMenu = () => {
@@ -16,9 +16,9 @@ const Navbar = () => {
     menuList.classList.toggle('is-active')
   }
 	
-  return <nav className="navbar is-black is-fixed-top">
+  return <nav className="navbar is-white is-fixed-top">
     <div className="navbar-brand">
-      <Link id="homeicon" className="navbar-item" to="/">green garms</Link>
+      <Link id="homeicon" className="navbar-item has-text-centered" to="/">Green Garms</Link>
       <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navDrop" onClick={handleMenu}>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -28,23 +28,23 @@ const Navbar = () => {
     <div id="navDrop" className="navbar-menu">
       <div className="navbar-end">
         <div className="navbar-item has-dropdown is-hoverable">
-          <Link className="navbar-link is-arrowless" to="/restaurants">
-							Restaurants
+          <Link className="navbar-link is-arrowless" to="/brands">
+							Brand Guide
           </Link>
         </div>
         {/* {Auth.isAuthorized() &&  */}
         <div className="navbar-item has-dropdown is-hoverable">
           <Link className="navbar-link is-arrowless" to="/recipes">
-							Recipes
+							Clothes Swap
           </Link>
         </div>
-        {Auth.isAuthorized() &&
+        {/* {Auth.isAuthorized() &&
 						<div className="navbar-item has-dropdown is-hoverable">
 						  <Link className="navbar-link is-arrowless" to="/recipe/new">
 								Add a Recipe
 						  </Link>
-						</div>}
-        <div className="navbar-item has-dropdown is-hoverable">
+						</div>} */}
+        {/* <div className="navbar-item has-dropdown is-hoverable">
           {userInfo ? <Link className="navbar-link is-arrowless" id="profile" to="/profile">{userInfo.username}</Link> : <div className="navbar-item is-arrowless" >Profile</div>}
           <div className="navbar-dropdown is-boxed">
             {!userInfo && <Link className="navbar-item" id="register" to="/register">
@@ -56,11 +56,11 @@ const Navbar = () => {
   
             {userInfo && <Link className="navbar-item" id="logout" to="/logout">
 								Logout
-            </Link>}
-          </div>
-        </div>
+            </Link>} */}
       </div>
     </div>
+    {/* </div>
+    </div> */}
   </nav>
 }
 
