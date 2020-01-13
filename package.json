@@ -1,0 +1,39 @@
+{
+  "name": "project-4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "webpack -p",
+		"serve:backend": "python manage.py runserver 4000",
+		"serve:frontend": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajames14/project-4.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ajames14/project-4/issues"
+  },
+  "homepage": "https://github.com/ajames14/project-4#readme",
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "html-webpack-plugin": "^3.2.0",
+    "react-svg-loader": "^3.0.3",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
+  },
+  "dependencies": {
+    "@babel/preset-react": "^7.7.4",
+    "css-loader": "^3.4.1",
+    "react-pose": "^4.0.10",
+    "react-scroll-parallax": "^2.2.0",
+    "sass-loader": "^8.0.1",
+    "style-loader": "^1.1.2"
+  }
+}

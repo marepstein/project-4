@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'jwt_auth',
     'clothes_swap',
+    'brands',
+    'frontend',
 ]
 
 MIDDLEWARE = [

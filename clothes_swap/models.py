@@ -1,5 +1,5 @@
-from django.db import models # importing the model module from django so we can create model classes
-from django.contrib.auth import get_user_model # importing our user model through the get_user_model method. Again this is project specific, in this case I'vwe imported the user so I can attach it an an Owner field on a post and a comment, If you did not want/need to attach the creating user to your resource, would would not do this.
+from django.db import models
+from django.contrib.auth import get_user_model
 User = get_user_model()
 
 class Item(models.Model):
