@@ -14,7 +14,7 @@ const StyledSquare = styled(Square)`
   height: 250px;
 `
 
-const IndependentSquare = () => {
+const LuxurySquare = () => {
   const [initialState, setInitialState] = useState({ 
     hovering: false 
   })
@@ -25,10 +25,10 @@ const IndependentSquare = () => {
         pose={initialState.hovering ? 'hovered' : 'idle'}
         onMouseEnter={() => setInitialState({ hovering: true })}
         onMouseLeave={() => setInitialState({ hovering: false })}
-      ><Link to="brands/independent" style={{ color: '#FFF' }}>independent</Link></StyledSquare>
+      ><Link to="brands/luxury" style={{ color: '#FFF' }}>Luxury</Link></StyledSquare>
     </div>
   </div>
   
 }
 
-export default IndependentSquare
+export default LuxurySquare

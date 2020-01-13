@@ -6,8 +6,7 @@ import Auth from '../lib/auth'
 const Navbar = () => {
     
   // const { userInfo } = useContext(UserContext)
-	
-  
+
   const handleMenu = () => {
     const burger = document.querySelector('.burger')
     const menuList = document.querySelector('#' + burger.dataset.target)
@@ -16,10 +15,10 @@ const Navbar = () => {
     menuList.classList.toggle('is-active')
   }
 	
-  return <nav className="navbar is-white is-fixed-top">
-    <div className="navbar-brand">
+  return <nav className="navbar is-white is-fixed-top is-mobile">
+    <div className="navbar-brand" style={{ fontFamily: 'Vollkorn, sans-serif' }}>
       <Link id="homeicon" className="navbar-item has-text-centered" to="/">Green Garms</Link>
-      <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navDrop" onClick={handleMenu}>
+			<a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navDrop" onClick={handleMenu}>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
