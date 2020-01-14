@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
 
 const formInitialState = {
@@ -34,7 +36,10 @@ const Register = (props) => {
           props.history.push('/login')
         }
       })
-      .catch((err) => setError({ errors: err.response.data }))
+      .catch((err) => {
+        setError({ errors: err.response.data })
+        console.log(error)
+      })
   }
 
   return (
@@ -54,7 +59,7 @@ const Register = (props) => {
                 className='input'
               />
             </div>
-            {error.errors.username && !form.username && <small className="help is-danger">
+            {error.errors.username && <small className="help is-danger">
               {error.errors.username}
             </small>}
           </div>
@@ -70,7 +75,7 @@ const Register = (props) => {
                 className='input'
               />
             </div>
-            {error.errors.email && !form.email && <small className="help is-danger">
+            {error.errors.email && <small className="help is-danger">
               {error.errors.email}
             </small>}
           </div>
@@ -86,7 +91,7 @@ const Register = (props) => {
                 className='input'
               />
             </div>
-            {error.errors.password && !form.password && <small className="help is-danger">
+            {error.errors.password && <small className="help is-danger">
               {error.errors.password}
             </small>}
           </div>

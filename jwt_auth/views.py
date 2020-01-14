@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import PermissionDenied
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from django.contrib.auth import get_user_model
 from django.conf import settings
 import jwt
@@ -41,7 +41,7 @@ class LoginView(APIView):
 
 class ProfileView(APIView):
 
-    permission_classes = (IsAuthenticated, ) 
+    permission_classes = (IsAuthenticatedOrReadOnly, )
 
     def get(self, request):
         user = User.objects.get(pk=request.user.id)
