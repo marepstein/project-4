@@ -1,6 +1,6 @@
 import React, { useState} from 'react'
 
-const categories = ['all', 'dresses', 'knitwear', 'jackets & coats', 'blouses & shirts', 'tops & t-shirts', 'trousers', 'jeans', 'skirts', 'jumpsuits & playsuits', 'sets & suits', 'footwear', 'accessories', 'jewellery', 'bags']
+const categories = ['Select option...', 'Dresses', 'Knitwear', 'Jackets & Coats', 'Blouses & Shirts', 'Tops & T-shirts', 'Trousers', 'Jeans', 'Skirts', 'Jumpsuits & Playsuits', 'Sets & Suits', 'Footwear', 'Accessories', 'Jewellery', 'Bags']
 
 const ItemForm = ({ data, handleSubmit, handleChange, errors }) => {
 	
@@ -12,7 +12,6 @@ const ItemForm = ({ data, handleSubmit, handleChange, errors }) => {
   // }
 	
   return <form action="" className="form" onSubmit={handleSubmit}>
-    {/* We use bulma field, label and control classes for nice forms */}
     <div className="field">
       <label htmlFor="" className="label">
         Image
@@ -102,7 +101,10 @@ const ItemForm = ({ data, handleSubmit, handleChange, errors }) => {
       <div className='control filters'>
         <label className='label'>Pick a Category:</label>
         <div className='select'>
-          <select onChange={handleChange}>
+          <select 
+            onChange={handleChange}
+            defaultValue="Choose a category..."
+            name="category">
             {categories.map((elem, i) => {
               return <option key={i} value={elem}>{elem}</option>
             })}

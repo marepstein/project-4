@@ -14,30 +14,35 @@ const NewItem = (props) => {
     description: '',
     size: '',
     original_price: '',
-    category: ['']
+    category: ''
   })
 	
   const [error, setErrors] = useState({})
 	
-  console.log(data)
-	
+
   function handleChange(e) {
     setData({ ...data, [e.target.name]: e.target.value })
-    // Keep all the previous errors, but remove the one for the field we just updated
     console.log(data)
     setErrors({ ...error, errors: '' })
   }
+
+  // function handleChange2(e) {
+  //   // const options = data.category
+  //   setData({ ...data, category: data.category.concat(e.target.value).join('') })
+  //   console.log(data)
+  //   console.log(data.category)
+  //   setErrors({ ...error, errors: '' })
+  // }
 	
   function handleSubmit(e) {
+    console.log('data', data)
     e.preventDefault()
-    axios.post('/api/items', data, { headers: { Authorization: `Bearer ${Auth.getToken()}` } })
-      .then(() => {
-        if (error.errors === '') {
-          props.history.push(`/items/${data._id}`)
-        }
-      })
+    axios.post('/api/items', data, { 
+      headers: { Authorization: `Bearer ${Auth.getToken()}` } 
+    })
+      .then(props.history.push('/profile'))
       .catch((err) => {
-        setErrors(err.response.data.errors)
+        setErrors(err.response.data)
         console.log(err.response.data.errors)
       })
   }
@@ -45,10 +50,9 @@ const NewItem = (props) => {
 
   return <section className="section">
     <div className="container">
-      {/* The cheese form is a common form used for creating and updating cheeses */}
       <ItemForm
-				handleChange={e => handleChange(e)}
-				handleSubmit={e => handleSubmit(e)}
+        handleChange={e => handleChange(e)}
+        handleSubmit={e => handleSubmit(e)}
         errors={error}
         data={data}
       />

@@ -61,7 +61,7 @@ const Profile = () => {
       <div className="section">
         <div className="container">
           <h3>Quicklinks</h3>
-          <Link className="tag is-info is-light" to='/profile/edit'>Add Item</Link>
+          <Link className="tag is-info is-light" to='/items/new'>Add Item</Link>
           <Link className="tag is-info is-light" to='/brands'>Brand Guide</Link>
           <Link className="tag is-info is-light" to='/clothesswap'>Clothes Swap</Link>
         </div>
