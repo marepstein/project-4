@@ -30,7 +30,7 @@ const Register = (props) => {
   function handleSubmit(e) {
     e.preventDefault()
     if (!form) return
-    axios.post('/api/register', form)
+    axios.post('/api/register', form, { headers: { 'Authorization': '' } })
       .then(() => {
         if (error.errors === '') {
           props.history.push('/login')

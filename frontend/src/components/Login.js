@@ -28,7 +28,7 @@ const Login = (props) => {
   function handleSubmit(e) {
     e.preventDefault()
     if (!form) return
-    axios.post('/api/login', form)
+    axios.post('/api/login', form, { headers: { 'Authorization': '' } })
       .then(resp => {
         Auth.setToken(resp.data.token)
         console.log(resp.data.token)

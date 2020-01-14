@@ -1,36 +1,18 @@
 import React, { useState} from 'react'
 
+const categories = ['all', 'dresses', 'knitwear', 'jackets & coats', 'blouses & shirts', 'tops & t-shirts', 'trousers', 'jeans', 'skirts', 'jumpsuits & playsuits', 'sets & suits', 'footwear', 'accessories', 'jewellery', 'bags']
 
 const ItemForm = ({ data, handleSubmit, handleChange, errors }) => {
-  
-  console.log(data.category)
-
-  // const categories = data.map((item) => {
-  //   return item.category
-  // })
-
-  // console.log(categories)
 	
+  // const [categorySelected, setCategory] = useState([])
+	
+  // const categorySelect = (e) => {
+  //   e.preventDefault()
+  //   setCategory({ ...categorySelected, [e.target.name]: e.target.value })
+  // }
 	
   return <form action="" className="form" onSubmit={handleSubmit}>
     {/* We use bulma field, label and control classes for nice forms */}
-    <div className="field">
-      <label htmlFor="" className="label">
-        Title
-      </label>
-      <div className="control">
-        <input
-          onChange={handleChange}
-          type="text"
-          name="title"
-          className="input"
-          value={data.title}
-        />
-      </div>
-      {errors.name && <small className="help is-danger">
-        {errors.name}
-      </small>}
-    </div>
     <div className="field">
       <label htmlFor="" className="label">
         Image
@@ -44,8 +26,25 @@ const ItemForm = ({ data, handleSubmit, handleChange, errors }) => {
           value={data.image}
         />
       </div>
-      {errors.origin && <small className="help is-danger">
-        {errors.origin}
+      {errors.image && <small className="help is-danger">
+        {errors.image}
+      </small>}
+    </div>
+    <div className="field">
+      <label htmlFor="" className="label">
+        Title
+      </label>
+      <div className="control">
+        <input
+          onChange={handleChange}
+          type="text"
+          name="title"
+          className="input"
+          value={data.title}
+        />
+      </div>
+      {errors.title && <small className="help is-danger">
+        {errors.title}
       </small>}
     </div>
     <div className="field">
@@ -61,8 +60,8 @@ const ItemForm = ({ data, handleSubmit, handleChange, errors }) => {
           value={data.description}
         />
       </div>
-      {errors.image && <small className="help is-danger">
-        {errors.image}
+      {errors.description && <small className="help is-danger">
+        {errors.description}
       </small>}
     </div>
     <div className="field">
@@ -78,8 +77,8 @@ const ItemForm = ({ data, handleSubmit, handleChange, errors }) => {
           value={data.size}
         />
       </div>
-      {errors.tastingNotes && <small className="help is-danger">
-        {errors.tastingNotes}
+      {errors.size && <small className="help is-danger">
+        {errors.size}
       </small>}
     </div>
     <div className="field">
@@ -95,27 +94,23 @@ const ItemForm = ({ data, handleSubmit, handleChange, errors }) => {
           value={data.original_price}
         />
       </div>
-      {errors.name && <small className="help is-danger">
-        {errors.name}
+      {errors.original_price && <small className="help is-danger">
+        {errors.original_price}
       </small>}
     </div>
-    {/* <div className="field">
-      <select options={categories} onChange={handleChange}>
-      </select>
-      <div className="control">
-        <input
-          onChange={handleChange}
-          type="text"
-          name="title"
-          className="input"
-          value={data.title}
-        />
+    <div className='field'>
+      <div className='control filters'>
+        <label className='label'>Pick a Category:</label>
+        <div className='select'>
+          <select onChange={handleChange}>
+            {categories.map((elem, i) => {
+              return <option key={i} value={elem}>{elem}</option>
+            })}
+          </select>
+        </div>
       </div>
-      {errors.name && <small className="help is-danger">
-        {errors.name}
-      </small>}
-    </div> */}
-    <button className="button is-success">
+    </div>
+    <button className="button is-black">
       Create Item
     </button>
   </form>

@@ -54,7 +54,7 @@ const App = (props) => {
   console.log(sharedInfo)
 
   return <HashRouter>
-    <UserContext.Provider 
+    <UserContext.Provider
       value={sharedInfo}>
       <Navbar />
       <Switch>
@@ -67,20 +67,20 @@ const App = (props) => {
           <Route path='/register' component={Register} />
           <Route path='/login' component={Login} />
           <Route path='/aboutcs' component={AboutCS} />
-          <Route path='/swap/:id' component={SwapPage}/>
+          <Route path='/swap/:id' component={SwapPage} />
           <Route path='/clothesswap' component={ClothesSwap} />
           <Route path='/profile' component={Profile} />
-					<Route path='/items/new' component={NewItem} />
+          <Route path='/items/new' component={NewItem} />
         </ScrollToTop>
       </Switch>
     </UserContext.Provider>
   </HashRouter>
-	
+
 }
 
 ReactDOM.render(
-  <App />, 
+  <App />,
   document.getElementById('root')
 )
-	
+
 

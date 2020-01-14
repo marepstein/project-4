@@ -19,7 +19,6 @@ const ClothesSwap = () => {
       .then(resp => setData(resp.data))
       .catch(err => setError({ errors: err.response.status }))
   }, [])
-  console.log(data)
 
   const categoryFilter = (e) => {
     e.preventDefault()
