@@ -16,7 +16,7 @@ const LandingPage = () => {
     </div>
     <div className="section is full-height" id="section-two" style={{ marginTop: 50 }}>
       <div className="container has-text-centered">
-        <div className="title" id="sustainable-title" style={{ fontSize: 50 }}>Why be sustainable?</div>
+        <div className="title" id="sustainable-title" style={{ fontSize: 40 }}>Why be sustainable?</div>
         <div className="fact">
           <div className="columns is-multiline">
             <div className="column" style={{ marginTop: 100, fontSize: 25 }}>
