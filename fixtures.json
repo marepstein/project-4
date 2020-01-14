@@ -1,173 +1,193 @@
 [
 {
-  "model": "brands.category",
-  "pk": 1,
-  "fields": {
-    "name": "High Street"
-  }
-},
-{
-  "model": "brands.category",
+  "model": "jwt_auth.user",
   "pk": 2,
   "fields": {
-    "name": "Luxury"
+    "password": "pbkdf2_sha256$150000$28ugGavP0qGQ$ASLfzM0khFukhbg9OCdyco3f1PilPa0fkdEdZZDmxjE=",
+    "last_login": "2020-01-13T11:40:45.032Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2020-01-13T11:33:15.699Z",
+    "email": "admin@ga.com",
+    "owned_items": "",
+    "liked_items": "",
+    "groups": [],
+    "user_permissions": []
   }
 },
 {
-  "model": "brands.category",
-  "pk": 3,
-  "fields": {
-    "name": "Independent"
-  }
+	"model": "brands.category",
+	"pk": 1,
+	"fields": {
+		"name": "High Street"
+	}
 },
 {
-  "model": "brands.brand",
-  "pk": 1,
-  "fields": {
-    "brand_name": "Nike",
-    "logo": "https://i.pinimg.com/originals/d6/00/0d/d6000de9de3547cdb98ca7f7ef85ddd8.jpg",
-    "ranking": "B-",
-    "our_ranking": null,
-    "category": 1,
-    "description": "Nike achieved the B- ranking. They have achieved an A+ grade for their environmental management, and have high levels of transparency and traceability in some areas. However, they have received low rankings in both elsewhere, which leaves areas for improvement.",
-    "report_link": "https://www.business-humanrights.org/sites/default/files/documents/FashionReport_2019_9-April-19-FINAL.pdf",
-    "company_website": "https://www.nike.com/gb",
-    "owner": 1
-  }
+	"model": "brands.category",
+	"pk": 2,
+	"fields": {
+		"name": "Luxury"
+	}
 },
 {
-  "model": "brands.brand",
-  "pk": 2,
-  "fields": {
-    "brand_name": "Prada",
-    "logo": "https://www.prada.com/etc/designs/pradaglobal/images/PLACEHOLDER-WHITE.jpg",
-    "ranking": "E",
-    "our_ranking": null,
-    "category": 2,
-    "description": "Until recently, Prada has earned it's grade by communicating nothing concrete about the policies for environment, carbon emissions or labor conditions in low-wages countries. But now Prada has made history as the first luxury brand to obtain a loan from French banking group Cr\u00e9dit Agricole with stringent sustainability-related conditions attached to it.",
-    "report_link": "https://www.standard.co.uk/fashion/prada-becomes-the-first-luxury-brand-to-sign-a-sustainability-deal-a4287041.html",
-    "company_website": "https://www.prada.com/gb/en.html",
-    "owner": 1
-  }
+	"model": "brands.category",
+	"pk": 3,
+	"fields": {
+		"name": "Independent"
+	}
 },
 {
-  "model": "brands.brand",
-  "pk": 3,
-  "fields": {
-    "brand_name": "Wolf & Badger",
-    "logo": "https://www.wolfandbadger.com/staticmedia/i/schema_logo.jpg",
-    "ranking": null,
-    "our_ranking": "A+",
-    "category": 3,
-    "description": "Wolf & Badger have boutiques in London and they support new and emerging independent designers. Their collections consist of designers who ensure fair wages, have both a traceable and transparent supply chain, which ensure the use of sustainably sourced materials.",
-    "report_link": "https://www.wolfandbadger.com/uk/blog/environment/environment/designers-and-brands-shaping-sustainable-fashion/",
-    "company_website": "https://www.wolfandbadger.com/uk/",
-    "owner": 1
-  }
+	"model": "brands.brand",
+	"pk": 1,
+	"fields": {
+		"brand_name": "Nike",
+		"logo": "https://i.pinimg.com/originals/d6/00/0d/d6000de9de3547cdb98ca7f7ef85ddd8.jpg",
+		"ranking": "B-",
+		"our_ranking": null,
+		"category": 1,
+		"description": "Nike achieved the B- ranking. They have achieved an A+ grade for their environmental management, and have high levels of transparency and traceability in some areas. However, they have received low rankings in both elsewhere, which leaves areas for improvement.",
+		"report_link": "https://www.business-humanrights.org/sites/default/files/documents/FashionReport_2019_9-April-19-FINAL.pdf",
+		"company_website": "https://www.nike.com/gb",
+		"owner": 2
+	}
 },
 {
-  "model": "brands.brand",
-  "pk": 4,
-  "fields": {
-    "brand_name": "Zara",
-    "logo": "https://carlisletheacarlisletheatre.org/images/zara-logo-font-3.jpg",
-    "ranking": "A",
-    "our_ranking": null,
-    "category": 1,
-    "description": "Despite being a leader of the fast-fashion industry, an industry often criticised for its negative environmental impact, Zara has been praised for their focus on sustainability. The owner of high street fashion chain Zara has announced that all of its collections will be made from 100% sustainable fabrics before 2025. Additionally, they aim to ensure that 80% of the energy consumed in headquarters, factories and stores will be from renewable sources.",
-    "report_link": "https://www.theguardian.com/fashion/2019/jul/17/zara-collections-to-be-made-from-100-sustainable-fabrics",
-    "company_website": "https://www.zara.com/uk/",
-    "owner": 1
-  }
+	"model": "brands.brand",
+	"pk": 2,
+	"fields": {
+		"brand_name": "Prada",
+		"logo": "https://www.prada.com/etc/designs/pradaglobal/images/PLACEHOLDER-WHITE.jpg",
+		"ranking": "E",
+		"our_ranking": null,
+		"category": 2,
+		"description": "Until recently, Prada has earned it's grade by communicating nothing concrete about the policies for environment, carbon emissions or labor conditions in low-wages countries. But now Prada has made history as the first luxury brand to obtain a loan from French banking group Cr\u00e9dit Agricole with stringent sustainability-related conditions attached to it.",
+		"report_link": "https://www.standard.co.uk/fashion/prada-becomes-the-first-luxury-brand-to-sign-a-sustainability-deal-a4287041.html",
+		"company_website": "https://www.prada.com/gb/en.html",
+		"owner": 2
+	}
 },
 {
-  "model": "brands.brand",
-  "pk": 5,
-  "fields": {
-    "brand_name": "Balenciaga",
-    "logo": "https://fashionista.com/.image/t_share/MTUwMzI1ODQxMjQ1NTEzMTkw/balenciaga-new-logo.png",
-    "ranking": "D",
-    "our_ranking": "C",
-    "category": 2,
-    "description": "Balenciaga has achieved the D-label. Brand owner Kering has started to take sustainability into account. For example, unlike many luxury brands, Balenciaga refrain from using fur in their collections. Additionally, in 2018 the company released a collaborative collection with 'The World Food Programme', in an attempt to contribute to the abolishment of the global hunger crisis. Yet still, a lot more can be done.",
-    "report_link": "https://rankabrand.org/sustainable-luxury-brands/Balenciaga",
-    "company_website": "https://www.balenciaga.com/gb",
-    "owner": 1
-  }
+	"model": "brands.brand",
+	"pk": 3,
+	"fields": {
+		"brand_name": "Wolf & Badger",
+		"logo": "https://www.wolfandbadger.com/staticmedia/i/schema_logo.jpg",
+		"ranking": null,
+		"our_ranking": "A+",
+		"category": 3,
+		"description": "Wolf & Badger have boutiques in London and they support new and emerging independent designers. Their collections consist of designers who ensure fair wages, have both a traceable and transparent supply chain, which ensure the use of sustainably sourced materials.",
+		"report_link": "https://www.wolfandbadger.com/uk/blog/environment/environment/designers-and-brands-shaping-sustainable-fashion/",
+		"company_website": "https://www.wolfandbadger.com/uk/",
+		"owner": 2
+	}
 },
 {
-  "model": "brands.brand",
-  "pk": 6,
-  "fields": {
-    "brand_name": "R\u00eave En Vert",
-    "logo": "https://trees.org/app/uploads/2016/11/Logo_REV-1-e1478008467899-768x188.png",
-    "ranking": null,
-    "our_ranking": "A",
-    "category": 3,
-    "description": "R\u00eave En Vert operates under four main pillars: sustainable style, quality, respect and longevity. Their main focus is on curation and timeless style, with a firm eye on social and environmental wellbeing. They ensure transparency in their supply chain through local sourcing and are committed to the use of sustainable, organic materials.",
-    "report_link": "https://www.refinery29.com/en-gb/2017/04/150633/ethical-clothing-brands#slide-2",
-    "company_website": "https://reve-en-vert.com/",
-    "owner": 1
-  }
+	"model": "brands.brand",
+	"pk": 4,
+	"fields": {
+		"brand_name": "Zara",
+		"logo": "https://carlisletheacarlisletheatre.org/images/zara-logo-font-3.jpg",
+		"ranking": "A",
+		"our_ranking": null,
+		"category": 1,
+		"description": "Despite being a leader of the fast-fashion industry, an industry often criticised for its negative environmental impact, Zara has been praised for their focus on sustainability. The owner of high street fashion chain Zara has announced that all of its collections will be made from 100% sustainable fabrics before 2025. Additionally, they aim to ensure that 80% of the energy consumed in headquarters, factories and stores will be from renewable sources.",
+		"report_link": "https://www.theguardian.com/fashion/2019/jul/17/zara-collections-to-be-made-from-100-sustainable-fabrics",
+		"company_website": "https://www.zara.com/uk/",
+		"owner": 2
+	}
 },
 {
-  "model": "brands.brand",
-  "pk": 7,
-  "fields": {
-    "brand_name": "UNIQLO",
-    "logo": "https://w7n4r7h4.stackpathcdn.com/wp-content/uploads/2018/07/uniqlo-logo.jpg",
-    "ranking": "B+",
-    "our_ranking": null,
-    "category": 1,
-    "description": "Uniqlo has a strong focus on sustainability and has achieved high levels of traceability, transparency and adequate supplier relations. However, they have been criticised for their worker empowerment.",
-    "report_link": "https://www.business-humanrights.org/sites/default/files/documents/FashionReport_2019_9-April-19-FINAL.pdf",
-    "company_website": "https://www.uniqlo.com/uk/en/home/",
-    "owner": 1
-  }
+	"model": "brands.brand",
+	"pk": 5,
+	"fields": {
+		"brand_name": "Balenciaga",
+		"logo": "https://fashionista.com/.image/t_share/MTUwMzI1ODQxMjQ1NTEzMTkw/balenciaga-new-logo.png",
+		"ranking": "D",
+		"our_ranking": "C",
+		"category": 2,
+		"description": "Balenciaga has achieved the D-label. Brand owner Kering has started to take sustainability into account. For example, unlike many luxury brands, Balenciaga refrain from using fur in their collections. Additionally, in 2018 the company released a collaborative collection with 'The World Food Programme', in an attempt to contribute to the abolishment of the global hunger crisis. Yet still, a lot more can be done.",
+		"report_link": "https://rankabrand.org/sustainable-luxury-brands/Balenciaga",
+		"company_website": "https://www.balenciaga.com/gb",
+		"owner": 2
+	}
 },
 {
-  "model": "brands.brand",
-  "pk": 8,
-  "fields": {
-    "brand_name": "Birdsong",
-    "logo": "https://cdn.shopify.com/s/files/1/0174/6668/7588/files/Logo_and_Shape-6_789x320.png?v=1558354371",
-    "ranking": null,
-    "our_ranking": "A+",
-    "category": 3,
-    "description": "Working with Knit & Natter groups in Enfield, low-income migrant mothers in Tower Hamlets and Brick Lane seamstresses, the brand is dedicated to working with women's groups to put amazing skills to good use for fair pay, while bringing gorgeous handmade clothing and jewellery to its audience.",
-    "report_link": "https://www.refinery29.com/en-gb/2017/04/150633/ethical-clothing-brands#slide-5",
-    "company_website": "https://birdsong.london/",
-    "owner": 1
-  }
+	"model": "brands.brand",
+	"pk": 6,
+	"fields": {
+		"brand_name": "R\u00eave En Vert",
+		"logo": "https://trees.org/app/uploads/2016/11/Logo_REV-1-e1478008467899-768x188.png",
+		"ranking": null,
+		"our_ranking": "A",
+		"category": 3,
+		"description": "R\u00eave En Vert operates under four main pillars: sustainable style, quality, respect and longevity. Their main focus is on curation and timeless style, with a firm eye on social and environmental wellbeing. They ensure transparency in their supply chain through local sourcing and are committed to the use of sustainable, organic materials.",
+		"report_link": "https://www.refinery29.com/en-gb/2017/04/150633/ethical-clothing-brands#slide-2",
+		"company_website": "https://reve-en-vert.com/",
+		"owner": 2
+	}
 },
 {
-  "model": "brands.brand",
-  "pk": 9,
-  "fields": {
-    "brand_name": "Stella McCartney",
-    "logo": "https://www.logolynx.com/images/logolynx/2c/2cf9c20517f4e17f60967892ccb08e88.png",
-    "ranking": null,
-    "our_ranking": "B",
-    "category": 2,
-    "description": "Stella McCartney was one of the first luxury brands to emphasise a commitment to sustainability. They provide consumers with a sustainable timeline, contributing to their levels of transparency and traceability. A member of the Ethical Trading Initiative, the brand is also careful with its selection of suppliers, many of whom are small businesses are artisans in Europe. When not designing her own products, Stella McCartney collaborates with numerous NGOs and environmental conservation organizations as well, including Wildlife Works and Parley for the Oceans.",
-    "report_link": "https://www.thegoodtrade.com/features/luxury-eco-friendly-designers",
-    "company_website": "https://www.stellamccartney.com/gb",
-    "owner": 1
-  }
+	"model": "brands.brand",
+	"pk": 7,
+	"fields": {
+		"brand_name": "UNIQLO",
+		"logo": "https://w7n4r7h4.stackpathcdn.com/wp-content/uploads/2018/07/uniqlo-logo.jpg",
+		"ranking": "B+",
+		"our_ranking": null,
+		"category": 1,
+		"description": "Uniqlo has a strong focus on sustainability and has achieved high levels of traceability, transparency and adequate supplier relations. However, they have been criticised for their worker empowerment.",
+		"report_link": "https://www.business-humanrights.org/sites/default/files/documents/FashionReport_2019_9-April-19-FINAL.pdf",
+		"company_website": "https://www.uniqlo.com/uk/en/home/",
+		"owner": 2
+	}
 },
 {
-  "model": "brands.brand",
-  "pk": 10,
-  "fields": {
-    "brand_name": "ASOS",
-    "logo": "http://mylastcoupon.com/wp-content/uploads/2016/06/asos-logo-.jpg",
-    "ranking": "B",
-    "our_ranking": null,
-    "category": 1,
-    "description": "In recent years, ASOS has worked towards the promotion and selling of sustainable products. Their sustainable sourcing programme comprises four pillars: traceability of raw materials, lowering environmental impact, building a circular fashion future and engaging customers on sustainability. They continue to work towards increasing their level of sustainability.",
-    "report_link": "https://www.business-humanrights.org/sites/default/files/documents/FashionReport_2019_9-April-19-FINAL.pdf",
-    "company_website": "www.asos.com",
-    "owner": 1
-  }
+	"model": "brands.brand",
+	"pk": 8,
+	"fields": {
+		"brand_name": "Birdsong",
+		"logo": "https://cdn.shopify.com/s/files/1/0174/6668/7588/files/Logo_and_Shape-6_789x320.png?v=1558354371",
+		"ranking": null,
+		"our_ranking": "A+",
+		"category": 3,
+		"description": "Working with Knit & Natter groups in Enfield, low-income migrant mothers in Tower Hamlets and Brick Lane seamstresses, the brand is dedicated to working with women's groups to put amazing skills to good use for fair pay, while bringing gorgeous handmade clothing and jewellery to its audience.",
+		"report_link": "https://www.refinery29.com/en-gb/2017/04/150633/ethical-clothing-brands#slide-5",
+		"company_website": "https://birdsong.london/",
+		"owner": 2
+	}
+},
+{
+	"model": "brands.brand",
+	"pk": 9,
+	"fields": {
+		"brand_name": "Stella McCartney",
+		"logo": "https://www.logolynx.com/images/logolynx/2c/2cf9c20517f4e17f60967892ccb08e88.png",
+		"ranking": null,
+		"our_ranking": "B",
+		"category": 2,
+		"description": "Stella McCartney was one of the first luxury brands to emphasise a commitment to sustainability. They provide consumers with a sustainable timeline, contributing to their levels of transparency and traceability. A member of the Ethical Trading Initiative, the brand is also careful with its selection of suppliers, many of whom are small businesses are artisans in Europe. When not designing her own products, Stella McCartney collaborates with numerous NGOs and environmental conservation organizations as well, including Wildlife Works and Parley for the Oceans.",
+		"report_link": "https://www.thegoodtrade.com/features/luxury-eco-friendly-designers",
+		"company_website": "https://www.stellamccartney.com/gb",
+		"owner": 2
+	}
+},
+{
+	"model": "brands.brand",
+	"pk": 10,
+	"fields": {
+		"brand_name": "ASOS",
+		"logo": "http://mylastcoupon.com/wp-content/uploads/2016/06/asos-logo-.jpg",
+		"ranking": "B",
+		"our_ranking": null,
+		"category": 1,
+		"description": "In recent years, ASOS has worked towards the promotion and selling of sustainable products. Their sustainable sourcing programme comprises four pillars: traceability of raw materials, lowering environmental impact, building a circular fashion future and engaging customers on sustainability. They continue to work towards increasing their level of sustainability.",
+		"report_link": "https://www.business-humanrights.org/sites/default/files/documents/FashionReport_2019_9-April-19-FINAL.pdf",
+		"company_website": "www.asos.com",
+		"owner": 2
+	}
 }
 ]

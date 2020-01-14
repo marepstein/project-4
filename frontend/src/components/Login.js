@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import axios from 'axios'
 import Auth from '../lib/auth'
+import UserContext from './UserContext'
 
 
 const initialLoginState = {
@@ -16,6 +17,7 @@ const Login = (props) => {
 
   const [form, updateForm] = useState(initialLoginState)
   const [error, setError] = useState(errorInitialState)
+  const { setUserInfo } = useContext(UserContext)
 
   function handleInput(e) {
     updateForm({ ...form, [e.target.name]: e.target.value })
@@ -30,9 +32,10 @@ const Login = (props) => {
       .then(resp => {
         Auth.setToken(resp.data.token)
         console.log(resp.data.token)
+        setUserInfo(resp.data.user)
+        props.history.push('/profile')
       })
-      .then(() => props.history.push('/clothesswap'))
-      .catch((err) => setError({ errors: 'Email or Password Incorrect' }))
+      .catch(() => setError({ errors: 'Email or Password Incorrect' }))
   }
 
   return (
@@ -46,7 +49,7 @@ const Login = (props) => {
             </label>
             <div className="control">
               <input
-                onChange={(e) => handleInput(e)}
+                onChange={handleInput}
                 type="text"
                 name="email"
                 className="input"
@@ -59,7 +62,7 @@ const Login = (props) => {
             </label>
             <div className="control">
               <input
-                onChange={(e) => handleInput(e)}
+                onChange={handleInput}
                 type="text"
                 name="password"
                 className="input"
