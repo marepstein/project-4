@@ -3,6 +3,7 @@ import { render } from 'react-dom'
 import useModal from 'react-hooks-use-modal'
 import axios from 'axios'
 import Auth from '../lib/auth'
+import ItemForm from './ItemForm'
 
 
 const NewItem = (props) => {
@@ -18,6 +19,7 @@ const NewItem = (props) => {
 	
   const [errors, setErrors] = useState({})
 	
+  console.log(data)
 
   function postIt() {
     axios.post('/api/items', data,

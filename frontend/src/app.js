@@ -23,6 +23,7 @@ import AboutCS from './components/AboutCS'
 import SwapPage from './components/SwapPage'
 import UserContext from './components/UserContext'
 import ScrollToTop from './components/ScrollToTop'
+import NewItem from './components/Newitem'
 
 const App = (props) => {
 
@@ -48,9 +49,9 @@ const App = (props) => {
           props.history.push('/login')
         })
     } else return
-	}, [])
+  }, [])
 	
-	console.log(sharedInfo)
+  console.log(sharedInfo)
 
   return <HashRouter>
     <UserContext.Provider 
@@ -68,7 +69,8 @@ const App = (props) => {
           <Route path='/aboutcs' component={AboutCS} />
           <Route path='/swap/:id' component={SwapPage}/>
           <Route path='/clothesswap' component={ClothesSwap} />
-					<Route path='/profile' component={Profile} />
+          <Route path='/profile' component={Profile} />
+					<Route path='/items/new' component={NewItem} />
         </ScrollToTop>
       </Switch>
     </UserContext.Provider>
