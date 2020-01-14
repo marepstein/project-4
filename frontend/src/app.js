@@ -19,7 +19,7 @@ const App = () => (
   <HashRouter>
     {/* <Navbar /> */}
     <Switch>
-      <Route exact path="/" component={LandingPage} />
+      {/* <Route exact path="/" component={LandingPage} /> */}
       <Route path='/register' component={Register} />
       <Route path='/login' component={Login} />
       <Route path='/aboutcs' component={AboutCS} />

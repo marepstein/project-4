@@ -83,7 +83,7 @@ class SwapApprovedDetailView(APIView):
 
 class SwapListView(APIView):
 
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticatedOrReadOnly, )
 
     def post(self, request, pk, swap_pk):
       request.data['requester'] = request.user.id
