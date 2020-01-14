@@ -1,5 +1,6 @@
 import React from 'react'
 import LazyHero from 'react-lazy-hero'
+import Fade from 'react-reveal/Fade'
 
 
 const LandingPage = () => {
@@ -13,15 +14,19 @@ const LandingPage = () => {
         </div>
       </LazyHero>
     </div>
-    <div className="section is full-height" style={{ marginTop: 50 }}>
+    <div className="section is full-height" id="section-two" style={{ marginTop: 50 }}>
       <div className="container has-text-centered">
         <div className="title" id="sustainable-title" style={{ fontSize: 50 }}>Why be sustainable?</div>
         <div className="fact">
           <div className="columns is-multiline">
             <div className="column" style={{ marginTop: 100, fontSize: 25 }}>
-              <h1>The apparel and footwear industries account for a combined estimate of 8% of the world’s greenhouse gas emissions, and fashion is the third highest-polluting industry in the world.</h1>
+              <Fade left>
+                <h1>The apparel and footwear industries account for a combined estimate of 8% of the world’s greenhouse gas emissions, and fashion is the third highest-polluting industry in the world.</h1>
+              </Fade>
               <div className="section">
-                <h1>Only 15% of our clothing is recycled or donated.</h1>
+                <Fade left>
+                  <h1>Only 15% of our clothing is recycled or donated.</h1>
+                </Fade>
               </div>
             </div>
             <div className="column">
@@ -35,13 +40,24 @@ const LandingPage = () => {
               </div>
             </div>
             <div className="column" style={{ marginTop: 50, fontSize: 25 }}>
-              <h1> It’s estimated that less than 1 percent of the material used to produce clothing is recycled into something more. That’s about a loss of 100 billion USD worth of materials every year.</h1>
-              <div className="section">
-                <h1>70million trees are cut down each year to make our clothes.</h1>
+              <Fade left>
+                <h1> It’s estimated that less than 1 percent of the material used to produce clothing is recycled into something more. That’s about a loss of 100 billion USD worth of materials every year.</h1>
+              </Fade>
+						  <div className="section">
+                <Fade left>
+                  <h1>70million trees are cut down each year to make our clothes.</h1>
+                </Fade>
               </div>
             </div>
           </div>    
         </div>
+      </div>
+    </div>
+    <div className="section is full-height" id="section-three" style={{ marginTop: 50 }}>
+      <div className="container has-text-centered">
+        <div className="title" style={{ fontSize: 50 }}>How can we help?</div>
+				
+			
       </div>
     </div>
   </div>
