@@ -49,6 +49,9 @@ const ClothesSwap = () => {
               return elem
             } return elem.category === categorySelected
           })
+            .filter(elem => {
+              return !elem.is_swapped
+            })
             .map((item, id) => {
               return <div key={id}>
                 <Link to={`/swap/${item.id}`}>

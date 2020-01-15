@@ -7,7 +7,7 @@ class UserSerializer(serializers.ModelSerializer):
 
   class Meta: 
     model = User
-    fields = ('id', 'username', 'owned_items', 'liked_items')
+    fields = ('id', 'username', 'email')
 
 class SwapRequesterSerializer(serializers.ModelSerializer):
 
@@ -15,11 +15,10 @@ class SwapRequesterSerializer(serializers.ModelSerializer):
     model = SwapRequester
     fields = ('id', 'requester', 'item', 'item_to_swap')
 
-# class SwapApprovalSerializer(serializers.ModelSerializer):
+class PopulatedSwapRequesterSerializer(SwapRequesterSerializer):
 
-#   class Meta: 
-#     model = SwapApproval
-#     fields = ('id', 'swapper', 'item')
+  requester = UserSerializer()
+
 
 class ItemSerializer(serializers.ModelSerializer):
   
@@ -30,7 +29,8 @@ class ItemSerializer(serializers.ModelSerializer):
 
 class PopulatedItemSerializer(ItemSerializer):
 
-  swap_requesters = SwapRequesterSerializer(many=True)
+  swap_requesters = PopulatedSwapRequesterSerializer(many=True)
+  owner = UserSerializer()
 
 class SwapItemSerializer(serializers.ModelSerializer):
   

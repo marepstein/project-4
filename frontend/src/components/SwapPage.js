@@ -29,14 +29,20 @@ const SwapPage = (props) => {
 
   function handleClick(e) {
     e.preventDefault()
-    console.log(e.target.value)
-    console.log(Auth.getToken())
     if (window.confirm(`Request to swap ${e.target.name}?`)) {
       axios.post(`/api/items/swap/${likedItem.id}/${e.target.value}/`, {}, {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
         .then(() => props.history.push('/clothesswap'))
-        .catch((err) => setError( { errors: err.response.data } ))
+        .catch((err) => setError({ errors: err.response.data }))
+    }
+  }
+
+  function noItemsToSwap() {
+    if (yourItems.filter(elem => {
+      return !elem.is_swapped
+    }).length === 0) {
+      return <Link to={'/profile'}>You have nothing to swap - Click to add items!</Link>
     }
   }
 
@@ -47,13 +53,17 @@ const SwapPage = (props) => {
       <p>{likedItem.description}</p>
     </div>
     <div>
-      {yourItems.map((elem, i) => {
-        return <div key={i}>
-          <div>{elem.title}</div>
-          <img src={elem.image}></img>
-          <button name={elem.title} value={elem.id} onClick={e => handleClick(e)}></button>
-        </div>
-      })}
+      {noItemsToSwap()}
+      {yourItems.filter(elem => {
+        return !elem.is_swapped
+      })
+        .map((elem, i) => {
+          return <div key={i}>
+            <div>{elem.title}</div>
+            <img src={elem.image}></img>
+            <button name={elem.title} value={elem.id} onClick={e => handleClick(e)}></button>
+          </div>
+        })}
     </div>
 
   </section>

@@ -24,7 +24,13 @@ const Profile = () => {
       })
       .catch(error => console.log(error))
   }, [])
-	
+
+
+  function swapRequestersExist(elem) {
+    return elem.length !== 0
+  }
+        
+
   console.log(data)
   console.log(userInfo)
 	
