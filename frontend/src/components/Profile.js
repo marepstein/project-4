@@ -8,8 +8,6 @@ import NewItem from './Newitem'
 const Profile = () => {
 
   const [data, setData] = useState({})
-  // const [info, setInfo] = useState({})
-  // const [update, setUpdate] = useState(false)
   const { userInfo, setUserInfo } = useContext(UserContext)
   const [itemModal, setItemModal] = useState(false)
 	

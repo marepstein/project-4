@@ -19,13 +19,13 @@ const LandingPage = () => {
         <div className="title" id="sustainable-title is-size-2-mobile" style={{ fontSize: 60 }}>Why be sustainable?</div>
         <div className="fact">
           <div className="columns is-multiline">
-            <div className="column" style={{ marginTop: 100, fontSize: 20 }}>
+            <div className="column" style={{ marginTop: 120 }}>
               <Fade left>
-                <h1>The apparel and footwear industries account for a combined estimate of 8% of the world’s greenhouse gas emissions, and fashion is the third highest-polluting industry in the world.</h1>
+                <div>The apparel and footwear industries account for a combined estimate of 8% of the world’s greenhouse gas emissions, and fashion is the third highest-polluting industry in the world.</div>
               </Fade>
               <div className="section">
                 <Fade left>
-                  <h1>Only 15% of our clothing is recycled or donated.</h1>
+                  <div>Only 15% of our clothing is recycled or donated.</div>
                 </Fade>
               </div>
             </div>
@@ -39,13 +39,13 @@ const LandingPage = () => {
               <div className="gif1"> <img src="https://media.giphy.com/media/xTiQyuOeUtdSOkRpOE/giphy.gif" />
               </div>
             </div>
-            <div className="column" style={{ marginTop: 50, fontSize: 20 }}>
+            <div className="column" style={{ marginTop: 120 }}>
               <Fade left>
-                <h1> It’s estimated that less than 1 percent of the material used to produce clothing is recycled into something more. That’s about a loss of 100 billion USD worth of materials every year.</h1>
+                <div> It’s estimated that less than 1 percent of the material used to produce clothing is recycled into something more. That’s about a loss of 100 billion USD worth of materials every year.</div>
               </Fade>
 						  <div className="section">
                 <Fade left>
-                  <h1>70million trees are cut down each year to make our clothes.</h1>
+                  <div>70million trees are cut down each year to make our clothes.</div>
                 </Fade>
               </div>
             </div>
@@ -58,12 +58,14 @@ const LandingPage = () => {
         <div className="title" style={{ fontSize: 50 }}>How we can help?</div>
         <div className="section">
           <div className="container">
-            <div className="columns is-multiline">
-              <div className="column">
-                <p><em><strong>1. Brand guide:</strong></em> helping you to shop sustainably. We provide a ranking of brands across three different categories.</p>
+            <div className="columns is-multiline is-mobile">
+              <div className="column" id="brand-column">
+                <div className="title is-size-4-mobile">Brand guide:</div>
+                <div className="subtitle is-size-7-mobile">Helping you shop sustainably</div>
               </div>
-              <div className="column">
-                <p><em><strong>1. Brand guide:</strong></em> helping you to shop sustainably. We provide a ranking of brands across three different categories.</p>
+              <div className="column" id="garm-column">
+                <div className="title  is-black is-size-4-mobile">Clothes Swap:</div>
+                <div className="subtitle is-black is-size-7-mobile">A Garms for Garms Society</div>
               </div>
             </div>
           </div>
