@@ -30,6 +30,9 @@ const App = (props) => {
   const [userInfo, setUserInfo] = useState(null)
   const sharedInfo = useMemo(() => ({ userInfo, setUserInfo }), [userInfo, setUserInfo])
 
+
+  // is to keep the user when you refresh 
+	
   useEffect(() => {
     console.log('running')
     // console.log(Auth.getToken())
@@ -39,8 +42,8 @@ const App = (props) => {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
         .then(response => {
-          setUserInfo(response.data.user)
-          // console.log(response.data)
+          setUserInfo(response.data)
+          console.log('response', response.data)
         })
         .catch(error => {
           console.log(error)
@@ -51,7 +54,7 @@ const App = (props) => {
     } else return
   }, [])
 	
-  console.log(sharedInfo)
+  console.log('user', userInfo)
 
   return <HashRouter>
     <UserContext.Provider

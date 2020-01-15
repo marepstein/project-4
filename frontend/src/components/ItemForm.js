@@ -4,12 +4,6 @@ const categories = ['Select option...', 'Dresses', 'Knitwear', 'Jackets & Coats'
 
 const ItemForm = ({ data, handleSubmit, handleChange, errors }) => {
 	
-  // const [categorySelected, setCategory] = useState([])
-	
-  // const categorySelect = (e) => {
-  //   e.preventDefault()
-  //   setCategory({ ...categorySelected, [e.target.name]: e.target.value })
-  // }
 	
   return <form action="" className="form" onSubmit={handleSubmit}>
     <div className="field">

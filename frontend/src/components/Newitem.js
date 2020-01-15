@@ -1,12 +1,10 @@
 import React, { useState, useCallback } from 'react'
-import { render } from 'react-dom'
-import useModal from 'react-hooks-use-modal'
 import axios from 'axios'
 import Auth from '../lib/auth'
 import ItemForm from './ItemForm'
 
 
-const NewItem = (props) => {
+const NewItem = ({ toggleForm }) => {
 
   const [data, setData] = useState({
     image: '',
@@ -40,7 +38,7 @@ const NewItem = (props) => {
     axios.post('/api/items', data, { 
       headers: { Authorization: `Bearer ${Auth.getToken()}` } 
     })
-      .then(props.history.push('/profile'))
+      .then(toggleForm)
       .catch((err) => {
         setErrors(err.response.data)
         console.log(err.response.data.errors)
@@ -58,9 +56,6 @@ const NewItem = (props) => {
       />
     </div>
   </section>
-
-
-
 
 }
 
