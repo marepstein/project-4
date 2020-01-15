@@ -43,10 +43,10 @@ const Register = (props) => {
   }
 
   return (
-    <section className="section">
-      <div className="container">
-        <div className="title">Register</div>
-        <form className='form' onSubmit={(e) => handleSubmit(e)}>
+    <section className="section" id="register-pg">
+      <div className="container has-text-centered">
+        <div className="title is-size-2-mobile" style={{ fontSize: 100 }}>Register</div>
+        <form className="form" onSubmit={(e) => handleSubmit(e)}>
           <div className="field">
             <label htmlFor="" className="label">
               Username
@@ -111,7 +111,7 @@ const Register = (props) => {
               {error.errors.password_confirmation}
             </small>}
           </div>
-          <button className='button is-success'>
+          <button className='button is-black'>
             Complete Registration
           </button>
         </form>

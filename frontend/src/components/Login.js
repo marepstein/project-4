@@ -17,7 +17,7 @@ const Login = (props) => {
 
   const [form, updateForm] = useState(initialLoginState)
   const [error, setError] = useState(errorInitialState)
-  const { setUserInfo } = useContext(UserContext)
+  const { userInfo, setUserInfo } = useContext(UserContext)
 
   function handleInput(e) {
     updateForm({ ...form, [e.target.name]: e.target.value })
@@ -32,16 +32,17 @@ const Login = (props) => {
       .then(resp => {
         Auth.setToken(resp.data.token)
         console.log(resp.data.token)
-        setUserInfo(resp.data.user)
+        // setUserInfo(resp.data)
         props.history.push('/profile')
       })
       .catch(() => setError({ errors: 'Email or Password Incorrect' }))
-  }
+	}
+	
 
   return (
-    <section className="section">
-      <div className="container">
-        <div className="title">Login</div>
+    <section className="section" id="login-pg">
+      <div className="container has-text-centered" style={{ paddingTop: 120 }}>
+        <div className="title is-size-2-mobile" style={{ fontSize: 100 }}>Login</div>
         <form className="form" onSubmit={(e) => handleSubmit(e)}>
           <div className="field">
             <label htmlFor="" className="label">
@@ -72,7 +73,7 @@ const Login = (props) => {
               {error.errors}
             </small>}
           </div>
-          <button className="button is-success">
+          <button className="button is-black">
             Login
           </button>
         </form>

@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Auth from '../lib/auth'
-// import { UserContext } from './UserContext'
+import UserContext from './UserContext'
 
 const Navbar = () => {
     
-  // const { userInfo } = useContext(UserContext)
+  const { userInfo, setUserInfo } = useContext(UserContext)
 
   const handleMenu = () => {
     const burger = document.querySelector('.burger')
@@ -15,10 +15,15 @@ const Navbar = () => {
     menuList.classList.toggle('is-active')
   }
 	
-  return <nav className="navbar is-white is-fixed-top is-mobile">
+  function handleLogout() {
+    Auth.logout()
+    setUserInfo(null)
+  }
+	
+  return <nav className="navbar is-white is-fixed-top" role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
       <Link id="homeicon" className="navbar-item has-text-centered" to="/">Green Garms</Link>
-			<a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navDrop" onClick={handleMenu}>
+      <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navDrop" onClick={handleMenu}>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -31,35 +36,28 @@ const Navbar = () => {
 							Brand Guide
           </Link>
         </div>
-        {/* {Auth.isAuthorized() &&  */}
         <div className="navbar-item has-dropdown is-hoverable">
           <Link className="navbar-link is-arrowless" to="/recipes">
 							Clothes Swap
           </Link>
         </div>
-        {/* {Auth.isAuthorized() &&
-						<div className="navbar-item has-dropdown is-hoverable">
-						  <Link className="navbar-link is-arrowless" to="/recipe/new">
-								Add a Recipe
-						  </Link>
-						</div>} */}
-        {/* <div className="navbar-item has-dropdown is-hoverable">
+        <div className="navbar-item has-dropdown is-hoverable">
           {userInfo ? <Link className="navbar-link is-arrowless" id="profile" to="/profile">{userInfo.username}</Link> : <div className="navbar-item is-arrowless" >Profile</div>}
-          <div className="navbar-dropdown is-boxed">
+          <div className="navbar-dropdown is-boxed" style={{ marginRight: 20 }}>
             {!userInfo && <Link className="navbar-item" id="register" to="/register">
 								Register
             </Link>}
             {!userInfo && <Link className="navbar-item" id="login" to="/login">
 								Login
             </Link>}
-  
-            {userInfo && <Link className="navbar-item" id="logout" to="/logout">
+            {Auth.isAuthorized() &&
+						<Link className="navbar-item" id="logout" to="/" onClick={handleLogout}>
 								Logout
-            </Link>} */}
+						</Link>}
+          </div>
+        </div>
       </div>
     </div>
-    {/* </div>
-    </div> */}
   </nav>
 }
 

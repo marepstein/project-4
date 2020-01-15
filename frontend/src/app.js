@@ -25,12 +25,16 @@ import UserContext from './components/UserContext'
 import ScrollToTop from './components/ScrollToTop'
 import SwapRequests from './components/SwapRequests'
 
+import NewItem from './components/Newitem'
 
 const App = (props) => {
 
   const [userInfo, setUserInfo] = useState(null)
   const sharedInfo = useMemo(() => ({ userInfo, setUserInfo }), [userInfo, setUserInfo])
 
+
+  // is to keep the user when you refresh 
+	
   useEffect(() => {
     console.log('running')
     // console.log(Auth.getToken())
@@ -40,8 +44,8 @@ const App = (props) => {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
         .then(response => {
-          setUserInfo(response.data.user)
-          // console.log(response.data)
+          setUserInfo(response.data)
+          console.log('response', response.data)
         })
         .catch(error => {
           console.log(error)
@@ -51,8 +55,8 @@ const App = (props) => {
         })
     } else return
   }, [])
-
-  console.log(sharedInfo)
+	
+  console.log('user', userInfo)
 
   return <HashRouter>
     <UserContext.Provider
@@ -72,6 +76,7 @@ const App = (props) => {
           <Route path='/clothesswap' component={ClothesSwap} />
           <Route path='/swaprequests/:id' component={SwapRequests} />
           <Route path='/profile' component={Profile} />
+          <Route path='/items/new' component={NewItem} />
         </ScrollToTop>
       </Switch>
     </UserContext.Provider>

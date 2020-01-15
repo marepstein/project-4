@@ -7,7 +7,6 @@ body, html {
 }
 
 
-
 #homeicon {
 	text-transform: uppercase;
 	font-weight: 900;
@@ -57,17 +56,19 @@ h1 {
 
 .fact {
 	// border: 1px solid black; 
-	padding: 20px; 
+	padding: 10px; 
 	margin: 10px; 
-	font-weight: 200;
-	text-transform: lowercase;
 	font-weight: 100;
+	font-size: 16px;
+	font-weight: 400;
+	font-family: sans-serif;
+	// text-transform: lowercase;
 }
 
 
 #main-subtitle, #sustainable-title {
 	height: 50px; 
-	width: 600px; 
+	width: auto; 
 	padding: 20px 0 0 20px ; 
 	border: 1px solid black;
 	background-color: black;
@@ -85,7 +86,103 @@ h1 {
 }
 
 
+.navbar {
+	margin: 0 35px 0 35px;
+}
 
+.form {
+	padding: 20px;
+	// background-image: url(https://media.giphy.com/media/gHKwtx7DyEN8c/giphy.gif);
+	// background-size: auto;
+	// background-repeat: no-repeat;
+	opacity: none;
+	// background-position: center
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+
+input[type='text'] {
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding: 4px;
+  width: 250px;
+  height: 32px;
+  border: none;
+	border-bottom: 1px solid red;
+	border-radius: 0px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+	transition: 0.2s ease;
+	text-align: center;
+}
+
+input[type='text']:focus {
+  border-bottom: 2px solid red;
+  color: red;
+  transition: 0.2s ease;
+}
+
+
+.label {
+	background-color: black; 
+	border: 1px solid black;
+	color: white;
+}
+
+#register-pg {
+	background-image: url(https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/15-watercolor-splash-maryna-kulchytska.jpg);
+	background-size: auto;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#login-pg {
+	background-image: url(https://www.onlygfx.com/wp-content/uploads/2017/07/blue-watercolor-splatter-texture-5.jpg);	
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 70%;
+}
+
+#brand-column, #garm-column {
+	border: solid 5px black;
+	margin: 0 10px 0 10px;
+	height: 500px; 
+}
+
+
+@media only screen and (max-width: 480px) {
+
+	#login-pg {
+		background-size: 140%; 
+	}
+
+	#main-subtitle {
+		// width: auto; 
+		// background-color: rgba(255, 255, 255, 0);
+		// border: none;
+		// padding-top: 0;
+		// color: black;
+		// font-weight: 700;
+		display: none;
+	}
+
+	h1 {
+		font-size: 12px;
+	}
+
+	.fact {
+		padding: 0;
+	}
+
+	#section-two{
+		background-size: 120%;
+		background-repeat: repeat-y;
+	}
+}
 
 
 

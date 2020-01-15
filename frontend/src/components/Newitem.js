@@ -1,11 +1,10 @@
 import React, { useState, useCallback } from 'react'
-import { render } from 'react-dom'
-import useModal from 'react-hooks-use-modal'
 import axios from 'axios'
 import Auth from '../lib/auth'
+import ItemForm from './ItemForm'
 
 
-const NewItem = (props) => {
+const NewItem = ({ toggleForm }) => {
 
   const [data, setData] = useState({
     image: '',
@@ -13,52 +12,50 @@ const NewItem = (props) => {
     description: '',
     size: '',
     original_price: '',
-    category: ['']
+    category: ''
   })
 	
-  const [errors, setErrors] = useState({})
+  const [error, setErrors] = useState({})
 	
 
-  function postIt() {
-    axios.post('/api/items', data,
-      {
-        headers: { Authorization: `Bearer ${Auth.getToken()}` }
-      })
-      .then(res => {
-        props.history.push(`/items/${res.data._id}`)
-      })
-      .catch(err => {
-        setErrors(err.response.data.errors)
+  function handleChange(e) {
+    setData({ ...data, [e.target.name]: e.target.value })
+    console.log(data)
+    setErrors({ ...error, errors: '' })
+  }
+
+  // function handleChange2(e) {
+  //   // const options = data.category
+  //   setData({ ...data, category: data.category.concat(e.target.value).join('') })
+  //   console.log(data)
+  //   console.log(data.category)
+  //   setErrors({ ...error, errors: '' })
+  // }
+	
+  function handleSubmit(e) {
+    console.log('data', data)
+    e.preventDefault()
+    axios.post('/api/items', data, { 
+      headers: { Authorization: `Bearer ${Auth.getToken()}` } 
+    })
+      .then(toggleForm)
+      .catch((err) => {
+        setErrors(err.response.data)
         console.log(err.response.data.errors)
       })
   }
 
 
-  function handleChange(e) {
-    setData({ ...data, [e.target.name]: e.target.value })
-    // Keep all the previous errors, but remove the one for the field we just updated
-    console.log(data)
-    setErrors({})
-  }
-	
-  function handleSubmit() {
-    postIt()
-  }
-
   return <section className="section">
     <div className="container">
-      {/* The cheese form is a common form used for creating and updating cheeses */}
       <ItemForm
-        handleSubmit={handleSubmit}
         handleChange={e => handleChange(e)}
-        errors={errors}
+        handleSubmit={e => handleSubmit(e)}
+        errors={error}
         data={data}
       />
     </div>
   </section>
-
-
-
 
 }
 
