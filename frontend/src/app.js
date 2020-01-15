@@ -23,6 +23,8 @@ import AboutCS from './components/AboutCS'
 import SwapPage from './components/SwapPage'
 import UserContext from './components/UserContext'
 import ScrollToTop from './components/ScrollToTop'
+import SwapRequests from './components/SwapRequests'
+
 
 const App = (props) => {
 
@@ -68,6 +70,7 @@ const App = (props) => {
           <Route path='/aboutcs' component={AboutCS} />
           <Route path='/swap/:id' component={SwapPage} />
           <Route path='/clothesswap' component={ClothesSwap} />
+          <Route path='/swaprequests/:id' component={SwapRequests} />
           <Route path='/profile' component={Profile} />
         </ScrollToTop>
       </Switch>
