@@ -83,36 +83,6 @@ const Profile = () => {
           })}
         </div>
       </div>
-      {/* <div className="section">
-        <div className="container">
-          <div className="titlecontain">
-            <h2 className="headers">Your Swap Requests</h2>
-          </div>
-          <div className="columns is-multiline">
-            {data.user && data.user.favouriteRecipes.map((recipes, id) => {
-              return (
-                <div key={id} className="column is-one-quarter-desktop is-one-third-tablet is-three-quartes-mobile">
-                  <div className="card">
-                    <h3 className="fav-title-recipe card-header-title is-centered"><Link className='fav-title-recipe' to={`/recipes/${recipes._id}`}>{recipes.name}</Link></h3>
-                    <p className="fav-sub">by {recipes.author}</p>
-                    <div className="card-image">
-                      <figure className="image is-5by4">
-                        <img className="image" src={recipes.image[0]} />
-                      </figure>
-                    </div>
-                    <div className="card-content">
-                      <div className="card-footer">
-                        <Link data-name={recipes.name} onClick={removeFavReci} className="card-footer-item">Remove</Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>)
-            })}
-          </div>
-        </div>
-      </div> */}
-      {/* </div>
-        </div> */}
     </div>
   </div>
 
