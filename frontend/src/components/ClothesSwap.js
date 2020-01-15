@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import LazyHero from 'react-lazy-hero'
 
-const categories = ['all', 'dresses', 'knitwear', 'jackets & coats', 'blouses & shirts', 'tops & t-shirts', 'trousers', 'jeans', 'skirts', 'jumpsuits & playsuits', 'sets & suits', 'footwear', 'accessories', 'jewellery', 'bags']
+
+const categories = ['All', 'Dresses', 'Knitwear', 'Jackets & Coats', 'Blouses & Shirts', 'Tops & T-shirts', 'Trousers', 'Jeans', 'Skirts', 'Jumpsuits & Playsuits', 'Sets & Suits', 'Footwear', 'Accessories', 'Jewellery', 'Bags']
 
 const errorInitialState = {
   errors: ''
@@ -12,7 +14,7 @@ const ClothesSwap = () => {
 
   const [data, setData] = useState([])
   const [error, setError] = useState(errorInitialState)
-  const [categorySelected, setCategory] = useState('all')
+  const [categorySelected, setCategory] = useState('All')
 
   useEffect(() => {
     axios.get('/api/items')
@@ -27,41 +29,59 @@ const ClothesSwap = () => {
   }
 
   return (
-    <section>
-      <form className='form'>
-        <div className='field'>
-          <div className='control filters'>
-            <label className='label'>Pick a Category:</label>
-            <div className='select'>
-              <select onChange={(e) => categoryFilter(e)}>
-                {categories.map((elem, i) => {
-                  return <option key={i} value={elem}>{elem}</option>
+    <div className='section'>
+      <LazyHero imageSrc="https://image.freepik.com/free-photo/colorful-powder-explosion-white-background-abstract-pastel-color-dust-particles-splash_36326-3517.jpg" minHeight='40vh' parallaxOffset={100} overflow='hidden' opacity={0.4} transitionDuration={0} id='swap-splash'>
+        <div>
+          <div style={{ fontSize: 65, fontWeight: 800 }}>CLOTHES SWAP</div>
+        </div>
+      </LazyHero>
+      <section>
+        <form className='form'>
+          <div className='field'>
+            <div className='control filters'>
+              <label className='label'>Pick a Category:</label>
+              <div className='select is-small is-info' id='drop-down'>
+                <select onChange={(e) => categoryFilter(e)}>
+                  {categories.map((elem, i) => {
+                    return <option key={i} value={elem}>{elem}</option>
+                  })}
+                </select>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div>
+          <div className='container'>
+            <div className='columns is-mobile is-multiline'>
+              {data.filter(elem => {
+                if (categorySelected === 'All') {
+                  return elem
+                } return elem.category === categorySelected
+              })
+                .filter(elem => {
+                  return !elem.is_swapped
+                })
+                .map((item, id) => {
+                  return <div className='column is-one-quarter-desktop is-one-third-tablet is-half-mobile' key={id}>
+                    <div className='card clothes-card'>
+                      <Link to={`/swap/${item.id}`}>
+                        <div className='card-image'>
+                          <figure className='image is-1by1'>
+                            <img src={item.image} alt='Placeholder image' />
+                          </figure>
+                        </div>
+                      </Link>
+                      <div id='clothes-content'>
+                        <p className='clothes-title is-size-6'>{item.title}</p>
+                      </div>
+                    </div>
+                  </div>
                 })}
-              </select>
             </div>
           </div>
         </div>
-      </form>
-      <div>
-        <div>
-          {data.filter(elem => {
-            if (categorySelected === 'all') {
-              return elem
-            } return elem.category === categorySelected
-          })
-            .filter(elem => {
-              return !elem.is_swapped
-            })
-            .map((item, id) => {
-              return <div key={id}>
-                <Link to={`/swap/${item.id}`}>
-                  <img src={item.image} alt='Placeholder image' />
-                </Link>
-              </div>
-            })}
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   )
 
 
