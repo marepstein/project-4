@@ -181,10 +181,86 @@ input[type='text']:focus {
 	#section-two{
 		background-size: 120%;
 		background-repeat: repeat-y;
-	}
+  }
+  
+  #swap-title{
+    margin-top: 0;
+  }
 }
 
+/* ---------------------------- */
+/*  Clothes Swap                */
+/* ---------------------------- */
 
+.clothes-card{
+  height: 100%;
+  background-color: black;
+  color: white;
+}
+
+#drop-down{
+  font-family: sans-serif;
+}
+
+.clothes-title{
+  padding: 10px 0 0 5px
+}
+
+#swap-splash{
+  width: 200px;
+  margin: 20px;
+  background-size: 50%;
+}
+
+#swap-title{
+  margin-top: 50%;
+}
+
+#item-title, #item-description{
+  background-color: black;
+  color: white;
+  margin: 10px;
+  width: 90%;
+}
+
+#swap-page{
+  margin: 20px;
+  #item-details{
+  font-size: 15px;
+  #price{
+    font-size: 18px;
+  }
+  }
+  #left-column{
+    padding: 15px;
+  }
+  #pick-item {
+    background-color: black;
+    color:white;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+  #swap-columns{
+  margin: 0px 25px;
+  }
+  #swap-button {
+    background-color: black;
+    color:white;
+    font-family: sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 5px;
+  }
+
+
+
+  // #right-column{
+  //   background-image: url(https://img.freepik.com/free-photo/multi-color-powder-explosion-white-background_36326-2672.jpg?size=626&ext=jpg);
+	//   background-size: auto;
+	//   background-repeat: no-repeat;
+	//   background-position: center;
+  // }
+}
 
 // *,*:before,*:after {box-sizing:inherit;margin:0; padding:0; border:0 none; position: relative;}
 // html {
