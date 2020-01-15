@@ -16,17 +16,6 @@ body, html {
 	// font-family: 'Vollkorn';
 }
 
-.box {
-	height: 250px;
-	width: 450px;
-	background-color: black;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	color: white; 
-	font-weight: 800;
-	border-radius: 0%;
-}
 
 .container {
 	margin-top: 50px;
@@ -85,6 +74,18 @@ h1 {
 	background-position: center;
 }
 
+#box-text {
+	color: white;
+}
+
+.box {
+	// height: 250px;
+	// width: auto;
+	background-color: black;
+	color: white; 
+	font-weight: 800;
+	border-radius: 0%;
+}
 
 .navbar {
 	margin: 0 35px 0 35px;
@@ -101,6 +102,7 @@ h1 {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	text-align: center;
 }
 
 
@@ -150,7 +152,45 @@ input[type='text']:focus {
 #brand-column, #garm-column {
 	border: solid 5px black;
 	margin: 0 10px 0 10px;
-	height: 500px; 
+	height: 300px; 
+	box-shadow: 10px 10px paleturquoise;
+}
+
+.box-text {
+	font-size: 15px; 
+}
+
+.reg-link {
+	color: black;
+	text-decoration: underline;
+	font-weight: 700;
+}
+
+.reg-link:hover {
+	color: blue; 
+}
+
+#profile-title {
+	font-size: 135px; 
+}
+
+#profile-header {
+	background-image: url(https://media.giphy.com/media/ilH3RJKH5LKZa/giphy.gif);
+	// transform: rotate(90deg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.button {
+	border: none; 
+	border-bottom: 2px solid papayawhip;
+	border-radius: 0;
+	margin: 0 10px 0 10px; 
+	font-weight: 800;
+}
+
+#quicklink-sect {
+	padding: 10px 20px 10px 20px; 
 }
 
 
@@ -182,6 +222,20 @@ input[type='text']:focus {
 		background-size: 120%;
 		background-repeat: repeat-y;
 	}
+
+	#brand-column, #garm-column {
+		height: 400px; 
+		margin: 10px 0 10px 0;
+	}
+
+	.button {
+		font-size: 50%;
+	}
+
+	#item-btn {
+		display: none;
+	}
+
 }
 
 

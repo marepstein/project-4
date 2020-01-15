@@ -4,6 +4,8 @@ import axios from 'axios'
 import Auth from '../lib/auth'
 import UserContext from './UserContext'
 import NewItem from './Newitem'
+import Slider from 'react-slick'
+import SimpleSlider from './Carousel'
 
 const Profile = () => {
 
@@ -30,13 +32,16 @@ const Profile = () => {
     setItemModal(!itemModal)
   }
 
+  function swapRequestersExist(elem) {
+    return elem.length !== 0
+  }
+
   return <div className="section">
-    <div className="container">
-      <h1> Welcome to Green Garms, {data.username}!</h1>
-      <h2>{data.email}</h2>
-      <div className="section">
-        <div className="container">
-          <h3>Quicklinks</h3>
+    <div className="container" id="profile-header">
+      <div className="title is-size-3-mobile" id="profile-title"> Welcome to Green Garms, {data.username}!</div>
+      {/* <h2>{data.email}</h2> */}
+      <div className="section" id="quicklink-sect">
+        <div className="container" style={{ marginTop: 0 }}>
           <div className={itemModal === true ? 'modal is-active' : 'modal'}>
             <div className="modal-background" onClick={toggleForm}></div>
             <div className="modal-content">
@@ -46,34 +51,38 @@ const Profile = () => {
             </div>
             <button className="modal-close is-large" aria-label="close" onClick={toggleForm}></button>
           </div>
-        
-          <button className="tag is-info is-light" onClick={toggleForm}>Add Item</button>
-          <Link className="tag is-info is-light" to='/brands'>Brand Guide</Link>
-          <Link className="tag is-info is-light" to='/clothesswap'>Clothes Swap</Link>
+          <button className="button" onClick={toggleForm} style={{ textTransform: 'uppercase' }}>Add Item</button>
+          <Link className="button" to='/brands'>Brand Guide</Link>
+          <Link className="button" to='/clothesswap'>Clothes Swap</Link>
         </div>
       </div>
     </div>
     <div className="section">
-      <div className="container">
-        <div className="titlecontain">
-          <h2 className="headers">Your Items</h2>
-        </div>
-        <div className="columns is-multiline">
-          {data.user && data.user.items.map((item, id) => {
+      <div className="container has-text-centered">
+        <h2 className="header is-size-1 is-size-3-mobile" style={{ fontWeight: 700 }}>Your Items</h2>
+      </div>
+      <br />
+      <div className="columns is-multiline">
+        {data.username && data.items.filter(elem => {
+          return !elem.is_swapped
+        })
+          .map((item, id) => {
             return (
-              <div key={id} className="column is-one-quarter-desktop is-one-third-tablet is-three-quartes-mobile">
-                <div className="card">
-                  {/* <h3 className="fav-title card-header-title is-centered"><Link className='fav-link' to={`/restaurants/${rest._id}`}>{rest.name}</Link></h3> */}
-                  <p className="fav-title">{item.title}</p>
-                  <div className="fav-sub">{item.swap_requesters}</div>
+              <div key={id} className="column is-one-quarter-desktop is-one-third-tablet is-three-quartes-mobile has-text-centered">
+                <div className="card has-text-centered" id="item-card">
+                  <p className="fav-title" style={{ padding: 10 }}>{item.title}</p>
+                  {swapRequestersExist(item.swap_requesters) &&
+                      <Link to={`/swaprequests/${item.id}/${item.swap_requesters.length}`} item={item}>
+                        <button className="button is-small">Swap Requests Pending!</button>
+                      </Link>}
                   <div className="card-image">
                     <figure className="image is-5by4 is-centered">
                       <img className="image" src={item.image} />
                     </figure>
                   </div>
-                  <div className="card-content">
-                    <div className="card-footer">
-    
+                  <div className="card-content has-text-centered">
+                    <div className="card-footer has-text-centered">
+                      <Link className="button" id="item-btn" style={{ paddingRight: 50, paddingLeft: 50 }} to={'/clothesswap'}>View item</Link>
                     </div>
                   </div>
 
@@ -81,40 +90,10 @@ const Profile = () => {
               </div>
             )
           })}
-        </div>
       </div>
-      {/* <div className="section">
-        <div className="container">
-          <div className="titlecontain">
-            <h2 className="headers">Your Swap Requests</h2>
-          </div>
-          <div className="columns is-multiline">
-            {data.user && data.user.favouriteRecipes.map((recipes, id) => {
-              return (
-                <div key={id} className="column is-one-quarter-desktop is-one-third-tablet is-three-quartes-mobile">
-                  <div className="card">
-                    <h3 className="fav-title-recipe card-header-title is-centered"><Link className='fav-title-recipe' to={`/recipes/${recipes._id}`}>{recipes.name}</Link></h3>
-                    <p className="fav-sub">by {recipes.author}</p>
-                    <div className="card-image">
-                      <figure className="image is-5by4">
-                        <img className="image" src={recipes.image[0]} />
-                      </figure>
-                    </div>
-                    <div className="card-content">
-                      <div className="card-footer">
-                        <Link data-name={recipes.name} onClick={removeFavReci} className="card-footer-item">Remove</Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>)
-            })}
-          </div>
-        </div>
-      </div> */}
-      {/* </div>
-        </div> */}
     </div>
-  </div>
+		</div>
+
 
 }
 

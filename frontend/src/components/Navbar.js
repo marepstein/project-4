@@ -37,7 +37,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-item has-dropdown is-hoverable">
-          <Link className="navbar-link is-arrowless" to="/recipes">
+          <Link className="navbar-link is-arrowless" to="/clothesswap">
 							Clothes Swap
           </Link>
         </div>

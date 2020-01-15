@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import LazyHero from 'react-lazy-hero'
 import Fade from 'react-reveal/Fade'
 
-
+  
 const LandingPage = () => {
 
   return <div>
@@ -16,7 +17,7 @@ const LandingPage = () => {
     </div>
     <div className="section is-full-height" id="section-two" style={{ marginTop: 50 }}>
       <div className="container has-text-centered">
-        <div className="title" id="sustainable-title is-size-2-mobile" style={{ fontSize: 60 }}>Why be sustainable?</div>
+        <div className="title is-size-4-mobile" id="sustainable-title" style={{ fontSize: 60 }}>Why be sustainable?</div>
         <div className="fact">
           <div className="columns is-multiline">
             <div className="column" style={{ marginTop: 120 }}>
@@ -53,27 +54,49 @@ const LandingPage = () => {
         </div>
       </div>
     </div>
-    <div className="section is full-height" id="section-three" style={{ marginTop: 50 }}>
+    <div className="section is full-height" id="section-three" style={{ marginTop: 10 }}>
       <div className="container has-text-centered">
         <div className="title" style={{ fontSize: 50 }}>How we can help?</div>
+        <marquee scrollamount="10"
+          direction="left"
+          behavior="scroll"><h2 style={{ fontWeight: 600 }}> Green Garms | Green Garms | Green Garms | Green Garms | Green Garms | Green Garms | Green Garms | Green Garms | Green Garms | Green Garms | Green Garms | Green Garms | Green Garms | Green Garms </h2></marquee>
         <div className="section">
           <div className="container">
             <div className="columns is-multiline is-mobile">
-              <div className="column" id="brand-column">
-                <div className="title is-size-4-mobile">Brand guide:</div>
-                <div className="subtitle is-size-7-mobile">Helping you shop sustainably</div>
+              <div className="column is-full-mobile" id="brand-column">
+                <div className="box">
+                  <div className="title is-size-4-mobile" id="box-text">Brand guide:</div>
+                  <h2 className="is-size-7-mobile" id="box-text">Helping you shop sustainably</h2>
+                </div>
+                <p className="box-text">Our top ranked sustainable brands across <em><strong>three categories</strong></em>. Choosing brands responsibly can contribute to a greener overall fashion future. </p>
               </div>
-              <div className="column" id="garm-column">
-                <div className="title  is-black is-size-4-mobile">Clothes Swap:</div>
-                <div className="subtitle is-black is-size-7-mobile">A Garms for Garms Society</div>
+              <div className="column is-full-mobile" id="garm-column">
+                <div className="box">
+                  <div className="title  is-black is-size-5-mobile" id="box-text">Clothes Swap:</div>
+                  <h2 className="is-size-7-mobile" id="box-text">A Garms for Garms Society</h2>
+                </div>
+                <p className="box-text"> - Register -
+                  <br /> 
+									
+								- Upload items -
+                  <br /> 
+								
+								- Browse and select items -
+                  <br /> 
+								- Choose your item to swap -
+                  <br />  
+								
+                  <Link className="reg-link" to='/register'> -	Get swapping - </Link>
+                </p>
               </div>
             </div>
           </div>
         </div>
-			
       </div>
     </div>
   </div>
+			
+      
 
 }
 

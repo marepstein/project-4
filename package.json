@@ -46,6 +46,7 @@
     "react-reveal": "^1.2.2",
     "react-router-dom": "^5.1.2",
     "react-scroll-parallax": "^2.2.0",
+    "react-slick": "^0.25.2",
     "reactjs-popup": "^1.5.0",
     "sass-loader": "^8.0.1",
     "style-loader": "^1.1.2",
