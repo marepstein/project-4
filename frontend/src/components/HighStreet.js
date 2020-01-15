@@ -29,26 +29,24 @@ const HighStreet = () => {
     return elem.our_ranking
   }
 	
-  return (
-    <div className="container">
-      <div className="section">
-        <div className="columns is-multiline">
-          {highStreetBrands.map((brand, i) => {
-            return <div className="container" key={i} brand={brand}>
-              <div className="title is-size-1">{brand.brand_name}</div>
-              {showRanking(brand) && 
-              <div className="subtitle" style={{ fontWeight: 800 }}>Ranking: {brand.ranking}
+  return <div className="section">
+    <div className="container has-text-centered">
+      <div className="columns is-multiline">
+        {highStreetBrands.map((brand, i) => {
+          return <div className="container" key={i} brand={brand}>
+            <div className="title is-size-1">{brand.brand_name}</div>
+            {showRanking(brand) && 
+              <div className="subtitle is-size-6" style={{ fontWeight: 800, color: '#000' }}>Ranking: {brand.ranking}
               </div>}
-              {showOurRanking(brand) && 
-              <div className="subtitle" style={{ fontWeight: 800 }}>Ranked by us: {brand.our_ranking}
-              </div>}
-              <div className="subtitle is-size-5">{brand.description}</div>
-            </div>
-          })} 
-        </div>
+            {showOurRanking(brand) && 
+             <div className="subtitle is-size-6" style={{ fontWeight: 800, color: '#000' }}>Ranked by us: {brand.our_ranking}
+             </div>}
+            <div className="brand-description has-text-centered is-size-6 is-size-7-mobile">{brand.description}</div>
+          </div>
+        })} 
       </div>
     </div>
-  )
+  </div>
 }
 
 export default HighStreet

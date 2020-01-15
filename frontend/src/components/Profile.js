@@ -4,14 +4,18 @@ import axios from 'axios'
 import Auth from '../lib/auth'
 import UserContext from './UserContext'
 import NewItem from './Newitem'
-import Slider from 'react-slick'
-import SimpleSlider from './Carousel'
+
+
+const errorInitialState = {
+  errors: ''
+}
 
 const Profile = () => {
 
   const [data, setData] = useState({})
   const { userInfo, setUserInfo } = useContext(UserContext)
   const [itemModal, setItemModal] = useState(false)
+  const [error, setError] = useState(errorInitialState)
 	
 
   useEffect(() => {
@@ -25,22 +29,30 @@ const Profile = () => {
       .catch(error => console.log(error))
   }, [])
 
+  // console.log(data.items)
+
+  function handleDelete(e) {
+		console.log(e.target.value)
+    axios.delete(`/api/items/${e.target.value}`, {
+      headers: { Authorization: `Bearer ${Auth.getToken()}` }
+    })
+      .catch((err) => setError( { errors: err.response.data } ))
+  }
+		
 
   function swapRequestersExist(elem) {
     return elem.length !== 0
   }
         
 
-  console.log(data)
-  console.log(userInfo)
+  // console.log(data)
+  // console.log(userInfo)
 	
   function toggleForm() {
     setItemModal(!itemModal)
   }
 
-  function swapRequestersExist(elem) {
-    return elem.length !== 0
-  }
+
 
   return <div className="section">
     <div className="container" id="profile-header">
@@ -86,9 +98,10 @@ const Profile = () => {
                       <img className="image" src={item.image} />
                     </figure>
                   </div>
-                  <div className="card-content has-text-centered">
+                  <div className="card-content has-text-centered" style={{ padding: 0 }}>
                     <div className="card-footer has-text-centered">
-                      <Link className="button" id="item-btn" style={{ paddingRight: 50, paddingLeft: 50 }} to={'/clothesswap'}>View item</Link>
+                      <Link className="button" id="item-btn" to={'/clothesswap'}>View item</Link>
+                      <button className="button" id="item-btn" value={item.id} onClick={e => handleDelete(e)}>Delete item</button>
                     </div>
                   </div>
 
@@ -98,7 +111,7 @@ const Profile = () => {
           })}
       </div>
     </div>
-		</div>
+  </div>
 
 
 }
