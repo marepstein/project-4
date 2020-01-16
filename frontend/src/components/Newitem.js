@@ -3,20 +3,21 @@ import axios from 'axios'
 import Auth from '../lib/auth'
 import ItemForm from './ItemForm'
 
+const initialForm = {
+  image: '',
+  title: '',
+  description: '',
+  size: '',
+  original_price: '',
+  category: ''
+}
 
-const NewItem = ({ toggleForm }) => {
+const NewItem = ({ toggleForm, props }) => {
 
-  const [data, setData] = useState({
-    image: '',
-    title: '',
-    description: '',
-    size: '',
-    original_price: '',
-    category: ''
-  })
-	
+  const [data, setData] = useState(initialForm)
+
   const [error, setErrors] = useState({})
-	
+
 
   function handleChange(e) {
     setData({ ...data, [e.target.name]: e.target.value })
@@ -31,18 +32,17 @@ const NewItem = ({ toggleForm }) => {
   //   console.log(data.category)
   //   setErrors({ ...error, errors: '' })
   // }
-	
+
   function handleSubmit(e) {
     console.log('data', data)
     e.preventDefault()
-    axios.post('/api/items', data, { 
-      headers: { Authorization: `Bearer ${Auth.getToken()}` } 
+    axios.post('/api/items', data, {
+      headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
       .then(toggleForm)
-      .catch((err) => {
-        setErrors(err.response.data)
-        console.log(err.response.data.errors)
-      })
+      .then(setData(initialForm))
+      .then(() => props.history.push('/profile'))
+      .catch(error => console.log(error))
   }
 
 
