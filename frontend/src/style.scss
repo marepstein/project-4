@@ -299,6 +299,10 @@ input[type='password']:focus {
   width: 90%;
 }
 
+/* ---------------------------- */
+/*  Swap Page                   */
+/* ---------------------------- */
+
 #swap-page{
   margin: 20px;
   #item-details{
@@ -327,6 +331,20 @@ input[type='password']:focus {
     font-weight: bold;
     margin: 5px;
   }
+
+
+/* ---------------------------- */
+/*  Swap Requests               */
+/* ---------------------------- */
+
+#swap-requests{
+  .columns{
+    padding: 25px;
+  }
+}
+
+
+
 
 
 

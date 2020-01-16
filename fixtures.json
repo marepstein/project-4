@@ -1,193 +1,501 @@
 [
+    {
+      "model": "jwt_auth.user",
+      "pk": 1,
+      "fields": {
+        "password": "pbkdf2_sha256$150000$28ugGavP0qGQ$ASLfzM0khFukhbg9OCdyco3f1PilPa0fkdEdZZDmxjE=",
+        "last_login": "2020-01-13T11:40:45.032Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2020-01-13T11:33:15.699Z",
+        "email": "admin@ga.com",
+        "owned_items": "",
+        "liked_items": "",
+        "groups": [],
+        "user_permissions": []
+      }
+    },
+    {
+      "model": "brands.category",
+      "pk": 1,
+      "fields": {
+        "name": "High Street"
+      }
+    },
+    {
+      "model": "brands.category",
+      "pk": 2,
+      "fields": {
+        "name": "Luxury"
+      }
+    },
+    {
+      "model": "brands.category",
+      "pk": 3,
+      "fields": {
+        "name": "Independent"
+      }
+    },
+    {
+      "model": "brands.brand",
+      "pk": 1,
+      "fields": {
+        "brand_name": "Nike",
+        "logo": "https://i.pinimg.com/originals/d6/00/0d/d6000de9de3547cdb98ca7f7ef85ddd8.jpg",
+        "ranking": "B-",
+        "our_ranking": null,
+        "category": 1,
+        "description": "Nike achieved the B- ranking. They have achieved an A+ grade for their environmental management, and have high levels of transparency and traceability in some areas. However, they have received low rankings in both elsewhere, which leaves areas for improvement.",
+        "report_link": "https://www.business-humanrights.org/sites/default/files/documents/FashionReport_2019_9-April-19-FINAL.pdf",
+        "company_website": "https://www.nike.com/gb",
+        "owner": 1
+      }
+    },
+    {
+      "model": "brands.brand",
+      "pk": 2,
+      "fields": {
+        "brand_name": "Prada",
+        "logo": "https://www.prada.com/etc/designs/pradaglobal/images/PLACEHOLDER-WHITE.jpg",
+        "ranking": "E",
+        "our_ranking": null,
+        "category": 2,
+        "description": "Until recently, Prada has earned it's grade by communicating nothing concrete about the policies for environment, carbon emissions or labor conditions in low-wages countries. But now Prada has made history as the first luxury brand to obtain a loan from French banking group Cr\u00e9dit Agricole with stringent sustainability-related conditions attached to it.",
+        "report_link": "https://www.standard.co.uk/fashion/prada-becomes-the-first-luxury-brand-to-sign-a-sustainability-deal-a4287041.html",
+        "company_website": "https://www.prada.com/gb/en.html",
+        "owner": 1
+      }
+    },
+    {
+      "model": "brands.brand",
+      "pk": 3,
+      "fields": {
+        "brand_name": "Wolf & Badger",
+        "logo": "https://www.wolfandbadger.com/staticmedia/i/schema_logo.jpg",
+        "ranking": null,
+        "our_ranking": "A+",
+        "category": 3,
+        "description": "Wolf & Badger have boutiques in London and they support new and emerging independent designers. Their collections consist of designers who ensure fair wages, have both a traceable and transparent supply chain, which ensure the use of sustainably sourced materials.",
+        "report_link": "https://www.wolfandbadger.com/uk/blog/environment/environment/designers-and-brands-shaping-sustainable-fashion/",
+        "company_website": "https://www.wolfandbadger.com/uk/",
+        "owner": 1
+      }
+    },
+    {
+      "model": "brands.brand",
+      "pk": 4,
+      "fields": {
+        "brand_name": "Zara",
+        "logo": "https://carlisletheacarlisletheatre.org/images/zara-logo-font-3.jpg",
+        "ranking": "A",
+        "our_ranking": null,
+        "category": 1,
+        "description": "Despite being a leader of the fast-fashion industry, an industry often criticised for its negative environmental impact, Zara has been praised for their focus on sustainability. The owner of high street fashion chain Zara has announced that all of its collections will be made from 100% sustainable fabrics before 2025. Additionally, they aim to ensure that 80% of the energy consumed in headquarters, factories and stores will be from renewable sources.",
+        "report_link": "https://www.theguardian.com/fashion/2019/jul/17/zara-collections-to-be-made-from-100-sustainable-fabrics",
+        "company_website": "https://www.zara.com/uk/",
+        "owner": 1
+      }
+    },
+    {
+      "model": "brands.brand",
+      "pk": 5,
+      "fields": {
+        "brand_name": "Balenciaga",
+        "logo": "https://fashionista.com/.image/t_share/MTUwMzI1ODQxMjQ1NTEzMTkw/balenciaga-new-logo.png",
+        "ranking": "D",
+        "our_ranking": "C",
+        "category": 2,
+        "description": "Balenciaga has achieved the D-label. Brand owner Kering has started to take sustainability into account. For example, unlike many luxury brands, Balenciaga refrain from using fur in their collections. Additionally, in 2018 the company released a collaborative collection with 'The World Food Programme', in an attempt to contribute to the abolishment of the global hunger crisis. Yet still, a lot more can be done.",
+        "report_link": "https://rankabrand.org/sustainable-luxury-brands/Balenciaga",
+        "company_website": "https://www.balenciaga.com/gb",
+        "owner": 1
+      }
+    },
+    {
+      "model": "brands.brand",
+      "pk": 6,
+      "fields": {
+        "brand_name": "R\u00eave En Vert",
+        "logo": "https://trees.org/app/uploads/2016/11/Logo_REV-1-e1478008467899-768x188.png",
+        "ranking": null,
+        "our_ranking": "A",
+        "category": 3,
+        "description": "R\u00eave En Vert operates under four main pillars: sustainable style, quality, respect and longevity. Their main focus is on curation and timeless style, with a firm eye on social and environmental wellbeing. They ensure transparency in their supply chain through local sourcing and are committed to the use of sustainable, organic materials.",
+        "report_link": "https://www.refinery29.com/en-gb/2017/04/150633/ethical-clothing-brands#slide-2",
+        "company_website": "https://reve-en-vert.com/",
+        "owner": 1
+      }
+    },
+    {
+      "model": "brands.brand",
+      "pk": 7,
+      "fields": {
+        "brand_name": "UNIQLO",
+        "logo": "https://w7n4r7h4.stackpathcdn.com/wp-content/uploads/2018/07/uniqlo-logo.jpg",
+        "ranking": "B+",
+        "our_ranking": null,
+        "category": 1,
+        "description": "Uniqlo has a strong focus on sustainability and has achieved high levels of traceability, transparency and adequate supplier relations. However, they have been criticised for their worker empowerment.",
+        "report_link": "https://www.business-humanrights.org/sites/default/files/documents/FashionReport_2019_9-April-19-FINAL.pdf",
+        "company_website": "https://www.uniqlo.com/uk/en/home/",
+        "owner": 1
+      }
+    },
+    {
+      "model": "brands.brand",
+      "pk": 8,
+      "fields": {
+        "brand_name": "Birdsong",
+        "logo": "https://cdn.shopify.com/s/files/1/0174/6668/7588/files/Logo_and_Shape-6_789x320.png?v=1558354371",
+        "ranking": null,
+        "our_ranking": "A+",
+        "category": 3,
+        "description": "Working with Knit & Natter groups in Enfield, low-income migrant mothers in Tower Hamlets and Brick Lane seamstresses, the brand is dedicated to working with women's groups to put amazing skills to good use for fair pay, while bringing gorgeous handmade clothing and jewellery to its audience.",
+        "report_link": "https://www.refinery29.com/en-gb/2017/04/150633/ethical-clothing-brands#slide-5",
+        "company_website": "https://birdsong.london/",
+        "owner": 1
+      }
+    },
+    {
+      "model": "brands.brand",
+      "pk": 9,
+      "fields": {
+        "brand_name": "Stella McCartney",
+        "logo": "https://www.logolynx.com/images/logolynx/2c/2cf9c20517f4e17f60967892ccb08e88.png",
+        "ranking": null,
+        "our_ranking": "B",
+        "category": 2,
+        "description": "Stella McCartney was one of the first luxury brands to emphasise a commitment to sustainability. They provide consumers with a sustainable timeline, contributing to their levels of transparency and traceability. A member of the Ethical Trading Initiative, the brand is also careful with its selection of suppliers, many of whom are small businesses are artisans in Europe. When not designing her own products, Stella McCartney collaborates with numerous NGOs and environmental conservation organizations as well, including Wildlife Works and Parley for the Oceans.",
+        "report_link": "https://www.thegoodtrade.com/features/luxury-eco-friendly-designers",
+        "company_website": "https://www.stellamccartney.com/gb",
+        "owner": 1
+      }
+    },
+    {
+      "model": "brands.brand",
+      "pk": 10,
+      "fields": {
+        "brand_name": "ASOS",
+        "logo": "http://mylastcoupon.com/wp-content/uploads/2016/06/asos-logo-.jpg",
+        "ranking": "B",
+        "our_ranking": null,
+        "category": 1,
+        "description": "In recent years, ASOS has worked towards the promotion and selling of sustainable products. Their sustainable sourcing programme comprises four pillars: traceability of raw materials, lowering environmental impact, building a circular fashion future and engaging customers on sustainability. They continue to work towards increasing their level of sustainability.",
+        "report_link": "https://www.business-humanrights.org/sites/default/files/documents/FashionReport_2019_9-April-19-FINAL.pdf",
+        "company_website": "www.asos.com",
+        "owner": 1
+      }
+    },    
 {
-  "model": "jwt_auth.user",
-  "pk": 2,
+  "model": "clothes_swap.item",
+  "pk": 1,
   "fields": {
-    "password": "pbkdf2_sha256$150000$28ugGavP0qGQ$ASLfzM0khFukhbg9OCdyco3f1PilPa0fkdEdZZDmxjE=",
-    "last_login": "2020-01-13T11:40:45.032Z",
-    "is_superuser": true,
-    "username": "admin",
-    "first_name": "",
-    "last_name": "",
-    "is_staff": true,
-    "is_active": true,
-    "date_joined": "2020-01-13T11:33:15.699Z",
-    "email": "admin@ga.com",
-    "owned_items": "",
-    "liked_items": "",
-    "groups": [],
-    "user_permissions": []
+    "image": "https://cdn.shopify.com/s/files/1/0350/3281/products/image_a892d149-41ac-4f65-ad8d-11059b60f658_360x.jpg?v=1579031597",
+    "title": "Tommy Hilfiger Cherry Sweater",
+    "description": "Tommy Hilfiger cherry red long sleeve knit cotton pullover with ribbing at the neck and hems, a v-stitch at the neck, and a petite embroidered logo at the chest.",
+    "size": "M",
+    "original_price": "\u00a375",
+    "category": "Knitwear",
+    "owner": 1,
+    "is_swapped": false
   }
 },
 {
-	"model": "brands.category",
-	"pk": 1,
-	"fields": {
-		"name": "High Street"
-	}
+  "model": "clothes_swap.item",
+  "pk": 2,
+  "fields": {
+    "image": "https://images.squarespace-cdn.com/content/v1/599310c549fc2b19c65503ba/1557860756433-8N3ZXFCXHG37NOWA87SB/ke17ZwdGBToddI8pDm48kOjRK56R6Zv_G7e8oqLJAApZw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVHnCwdnhsRVA2vGzJk_h1WbeZFFi6pvtvnRB2it_OjRMN1lH3P2bFZvTItROhWrBJ0/Screen+Shot+2019-05-14+at+12.02.11+PM.png?format=500w",
+    "title": "Beautiful Black Satin Dress",
+    "description": "Great condition, worn once. Real satin.",
+    "size": "S",
+    "original_price": "\u00a399.99",
+    "category": "Dresses",
+    "owner": 1,
+    "is_swapped": false
+  }
 },
 {
-	"model": "brands.category",
-	"pk": 2,
-	"fields": {
-		"name": "Luxury"
-	}
+  "model": "clothes_swap.item",
+  "pk": 3,
+  "fields": {
+    "image": "https://images.squarespace-cdn.com/content/v1/599310c549fc2b19c65503ba/1557864598809-NXFEYH11IT1NNMBS4XJG/ke17ZwdGBToddI8pDm48kCXdEjVKILjSNqglwO62osdZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxC_9UCcXFl7-Gb-EbfBkBebNQA65MeQSobZraA6DJ0h0c83cdE74cCD1Km_mzmps8/IMG_3438.JPG?format=750w",
+    "title": "Ivory Skirt Suit",
+    "description": "The Perfect Linen Skirt Suit. Fits 27-28 waist best.",
+    "size": "S",
+    "original_price": "\u00a345.00",
+    "category": "Sets & Suits",
+    "owner": 1,
+    "is_swapped": false
+  }
 },
 {
-	"model": "brands.category",
-	"pk": 3,
-	"fields": {
-		"name": "Independent"
-	}
+  "model": "clothes_swap.item",
+  "pk": 4,
+  "fields": {
+    "image": "https://marketplace-images.asos.com/user/7680b140-ff85-4bf5-8c2d-27d8e0db3d9c_large.jpg",
+    "title": "Faux Suede Coat",
+    "description": "Vintage 80s - 90s oversized winter coat for women - brown faux suede fabrication topped with soft faux fur lining.",
+    "size": "L",
+    "original_price": "\u00a389",
+    "category": "Jackets & Coats",
+    "owner": 1,
+    "is_swapped": false
+  }
 },
 {
-	"model": "brands.brand",
-	"pk": 1,
-	"fields": {
-		"brand_name": "Nike",
-		"logo": "https://i.pinimg.com/originals/d6/00/0d/d6000de9de3547cdb98ca7f7ef85ddd8.jpg",
-		"ranking": "B-",
-		"our_ranking": null,
-		"category": 1,
-		"description": "Nike achieved the B- ranking. They have achieved an A+ grade for their environmental management, and have high levels of transparency and traceability in some areas. However, they have received low rankings in both elsewhere, which leaves areas for improvement.",
-		"report_link": "https://www.business-humanrights.org/sites/default/files/documents/FashionReport_2019_9-April-19-FINAL.pdf",
-		"company_website": "https://www.nike.com/gb",
-		"owner": 2
-	}
+  "model": "clothes_swap.item",
+  "pk": 5,
+  "fields": {
+    "image": "https://marketplace-images.asos.com/user/58cb1a61-c596-424a-ad5d-2a8d323f52ce_large.jpg",
+    "title": "Denim Dungarees",
+    "description": "Original vintage light blue denim dungarees. Single chest pocket and double waist pockets front and back. Oversized fit.",
+    "size": "M",
+    "original_price": "\u00a345.00",
+    "category": "Jumpsuits & Playsuits",
+    "owner": 1,
+    "is_swapped": false
+  }
 },
 {
-	"model": "brands.brand",
-	"pk": 2,
-	"fields": {
-		"brand_name": "Prada",
-		"logo": "https://www.prada.com/etc/designs/pradaglobal/images/PLACEHOLDER-WHITE.jpg",
-		"ranking": "E",
-		"our_ranking": null,
-		"category": 2,
-		"description": "Until recently, Prada has earned it's grade by communicating nothing concrete about the policies for environment, carbon emissions or labor conditions in low-wages countries. But now Prada has made history as the first luxury brand to obtain a loan from French banking group Cr\u00e9dit Agricole with stringent sustainability-related conditions attached to it.",
-		"report_link": "https://www.standard.co.uk/fashion/prada-becomes-the-first-luxury-brand-to-sign-a-sustainability-deal-a4287041.html",
-		"company_website": "https://www.prada.com/gb/en.html",
-		"owner": 2
-	}
+  "model": "clothes_swap.item",
+  "pk": 6,
+  "fields": {
+    "image": "https://d2h1pu99sxkfvn.cloudfront.net/b0/666171/604354180_1oFn7jXy5Y/P0.jpg",
+    "title": "Nike Trainers",
+    "description": "Nike Air Force 1 trainers - size uk 6.5 - great condition",
+    "size": "6.5",
+    "original_price": "\u00a380.00",
+    "category": "Footwear",
+    "owner": 1,
+    "is_swapped": false
+  }
 },
 {
-	"model": "brands.brand",
-	"pk": 3,
-	"fields": {
-		"brand_name": "Wolf & Badger",
-		"logo": "https://www.wolfandbadger.com/staticmedia/i/schema_logo.jpg",
-		"ranking": null,
-		"our_ranking": "A+",
-		"category": 3,
-		"description": "Wolf & Badger have boutiques in London and they support new and emerging independent designers. Their collections consist of designers who ensure fair wages, have both a traceable and transparent supply chain, which ensure the use of sustainably sourced materials.",
-		"report_link": "https://www.wolfandbadger.com/uk/blog/environment/environment/designers-and-brands-shaping-sustainable-fashion/",
-		"company_website": "https://www.wolfandbadger.com/uk/",
-		"owner": 2
-	}
+  "model": "clothes_swap.item",
+  "pk": 7,
+  "fields": {
+    "image": "https://marketplace-images.asos.com/user/90f77222-fad8-41a5-b7ab-410021310bd1_large.jpg",
+    "title": "Wrangler Jeans",
+    "description": "Vintage Wrangler Jeans Slim Fit Blue. Excellent Used Condition - the item shows very few signs of wear.",
+    "size": "M",
+    "original_price": "\u00a355.00",
+    "category": "Jeans",
+    "owner": 1,
+    "is_swapped": false
+  }
 },
 {
-	"model": "brands.brand",
-	"pk": 4,
-	"fields": {
-		"brand_name": "Zara",
-		"logo": "https://carlisletheacarlisletheatre.org/images/zara-logo-font-3.jpg",
-		"ranking": "A",
-		"our_ranking": null,
-		"category": 1,
-		"description": "Despite being a leader of the fast-fashion industry, an industry often criticised for its negative environmental impact, Zara has been praised for their focus on sustainability. The owner of high street fashion chain Zara has announced that all of its collections will be made from 100% sustainable fabrics before 2025. Additionally, they aim to ensure that 80% of the energy consumed in headquarters, factories and stores will be from renewable sources.",
-		"report_link": "https://www.theguardian.com/fashion/2019/jul/17/zara-collections-to-be-made-from-100-sustainable-fabrics",
-		"company_website": "https://www.zara.com/uk/",
-		"owner": 2
-	}
+  "model": "clothes_swap.item",
+  "pk": 8,
+  "fields": {
+    "image": "https://cdn.shopify.com/s/files/1/0350/3281/products/image_b6ce6a02-7f60-48b4-b8f5-3570492133d6_590x.jpg?v=1579116952",
+    "title": "Levi Jeans",
+    "description": "Vintage Light Wash Levi's. Classic 505 Levi's feature 5 pockets, a zipper fly, and perfect worn-in feel.",
+    "size": "S",
+    "original_price": "\u00a389.99",
+    "category": "Jeans",
+    "owner": 1,
+    "is_swapped": false
+  }
 },
 {
-	"model": "brands.brand",
-	"pk": 5,
-	"fields": {
-		"brand_name": "Balenciaga",
-		"logo": "https://fashionista.com/.image/t_share/MTUwMzI1ODQxMjQ1NTEzMTkw/balenciaga-new-logo.png",
-		"ranking": "D",
-		"our_ranking": "C",
-		"category": 2,
-		"description": "Balenciaga has achieved the D-label. Brand owner Kering has started to take sustainability into account. For example, unlike many luxury brands, Balenciaga refrain from using fur in their collections. Additionally, in 2018 the company released a collaborative collection with 'The World Food Programme', in an attempt to contribute to the abolishment of the global hunger crisis. Yet still, a lot more can be done.",
-		"report_link": "https://rankabrand.org/sustainable-luxury-brands/Balenciaga",
-		"company_website": "https://www.balenciaga.com/gb",
-		"owner": 2
-	}
+  "model": "clothes_swap.item",
+  "pk": 9,
+  "fields": {
+    "image": "https://cdn.shopify.com/s/files/1/0350/3281/products/26630021_590x.jpg?v=1574882431",
+    "title": "Silk Shorts",
+    "description": "White Silk Shorts, old favourites but now too small. High waist, front pleat, wooden button, zipper and side pockets.",
+    "size": "S",
+    "original_price": "\u00a345.00",
+    "category": "Trousers",
+    "owner": 1,
+    "is_swapped": false
+  }
 },
 {
-	"model": "brands.brand",
-	"pk": 6,
-	"fields": {
-		"brand_name": "R\u00eave En Vert",
-		"logo": "https://trees.org/app/uploads/2016/11/Logo_REV-1-e1478008467899-768x188.png",
-		"ranking": null,
-		"our_ranking": "A",
-		"category": 3,
-		"description": "R\u00eave En Vert operates under four main pillars: sustainable style, quality, respect and longevity. Their main focus is on curation and timeless style, with a firm eye on social and environmental wellbeing. They ensure transparency in their supply chain through local sourcing and are committed to the use of sustainable, organic materials.",
-		"report_link": "https://www.refinery29.com/en-gb/2017/04/150633/ethical-clothing-brands#slide-2",
-		"company_website": "https://reve-en-vert.com/",
-		"owner": 2
-	}
+  "model": "clothes_swap.item",
+  "pk": 10,
+  "fields": {
+    "image": "https://cdn.shopify.com/s/files/1/0350/3281/products/image_d5a0b593-2080-4fca-949a-61af0e81d7a6_590x.jpg?v=1573683449",
+    "title": "Vintage Black T-shirt",
+    "description": "100% cotton, super soft round neck tee made with a ribbed band finish.",
+    "size": "M",
+    "original_price": "\u00a335.00",
+    "category": "Tops & T-shirts",
+    "owner": 1,
+    "is_swapped": false
+  }
 },
 {
-	"model": "brands.brand",
-	"pk": 7,
-	"fields": {
-		"brand_name": "UNIQLO",
-		"logo": "https://w7n4r7h4.stackpathcdn.com/wp-content/uploads/2018/07/uniqlo-logo.jpg",
-		"ranking": "B+",
-		"our_ranking": null,
-		"category": 1,
-		"description": "Uniqlo has a strong focus on sustainability and has achieved high levels of traceability, transparency and adequate supplier relations. However, they have been criticised for their worker empowerment.",
-		"report_link": "https://www.business-humanrights.org/sites/default/files/documents/FashionReport_2019_9-April-19-FINAL.pdf",
-		"company_website": "https://www.uniqlo.com/uk/en/home/",
-		"owner": 2
-	}
+  "model": "clothes_swap.item",
+  "pk": 11,
+  "fields": {
+    "image": "https://cdn.shopify.com/s/files/1/0350/3281/products/image_9d669770-2f0a-4adb-9703-4a07d824cc44_590x.jpg?v=1579116592",
+    "title": "Wool Knit Pullover",
+    "description": "Vintage Pattern Wool Pullover - Recommended for size s-l, depending on desired drape.",
+    "size": "S",
+    "original_price": "\u00a354.00",
+    "category": "Knitwear",
+    "owner": 1,
+    "is_swapped": false
+  }
 },
 {
-	"model": "brands.brand",
-	"pk": 8,
-	"fields": {
-		"brand_name": "Birdsong",
-		"logo": "https://cdn.shopify.com/s/files/1/0174/6668/7588/files/Logo_and_Shape-6_789x320.png?v=1558354371",
-		"ranking": null,
-		"our_ranking": "A+",
-		"category": 3,
-		"description": "Working with Knit & Natter groups in Enfield, low-income migrant mothers in Tower Hamlets and Brick Lane seamstresses, the brand is dedicated to working with women's groups to put amazing skills to good use for fair pay, while bringing gorgeous handmade clothing and jewellery to its audience.",
-		"report_link": "https://www.refinery29.com/en-gb/2017/04/150633/ethical-clothing-brands#slide-5",
-		"company_website": "https://birdsong.london/",
-		"owner": 2
-	}
+  "model": "clothes_swap.item",
+  "pk": 12,
+  "fields": {
+    "image": "https://d2h1pu99sxkfvn.cloudfront.net/b0/1789003/596851743_HWGPr41mfv/P0.jpg",
+    "title": "Camel Suede Coat",
+    "description": "Amazing vintage camel coloured suede coat - best fit sizes 6 8 10 and 12",
+    "size": "M",
+    "original_price": "\u00a375",
+    "category": "Jackets & Coats",
+    "owner": 1,
+    "is_swapped": false
+  }
 },
 {
-	"model": "brands.brand",
-	"pk": 9,
-	"fields": {
-		"brand_name": "Stella McCartney",
-		"logo": "https://www.logolynx.com/images/logolynx/2c/2cf9c20517f4e17f60967892ccb08e88.png",
-		"ranking": null,
-		"our_ranking": "B",
-		"category": 2,
-		"description": "Stella McCartney was one of the first luxury brands to emphasise a commitment to sustainability. They provide consumers with a sustainable timeline, contributing to their levels of transparency and traceability. A member of the Ethical Trading Initiative, the brand is also careful with its selection of suppliers, many of whom are small businesses are artisans in Europe. When not designing her own products, Stella McCartney collaborates with numerous NGOs and environmental conservation organizations as well, including Wildlife Works and Parley for the Oceans.",
-		"report_link": "https://www.thegoodtrade.com/features/luxury-eco-friendly-designers",
-		"company_website": "https://www.stellamccartney.com/gb",
-		"owner": 2
-	}
+  "model": "clothes_swap.item",
+  "pk": 13,
+  "fields": {
+    "image": "https://marketplace-images.asos.com/user/41e6ec93-7f47-4495-8b20-390e2827c593_large.jpg",
+    "title": "White & Pink Vintage Dress",
+    "description": "Vintage 1970s White & Pink Lace Fitted Summer Wedding Dress - pink satin with a crocheted white lace overlay.",
+    "size": "S",
+    "original_price": "\u00a3199.99",
+    "category": "Dresses",
+    "owner": 1,
+    "is_swapped": false
+  }
 },
 {
-	"model": "brands.brand",
-	"pk": 10,
-	"fields": {
-		"brand_name": "ASOS",
-		"logo": "http://mylastcoupon.com/wp-content/uploads/2016/06/asos-logo-.jpg",
-		"ranking": "B",
-		"our_ranking": null,
-		"category": 1,
-		"description": "In recent years, ASOS has worked towards the promotion and selling of sustainable products. Their sustainable sourcing programme comprises four pillars: traceability of raw materials, lowering environmental impact, building a circular fashion future and engaging customers on sustainability. They continue to work towards increasing their level of sustainability.",
-		"report_link": "https://www.business-humanrights.org/sites/default/files/documents/FashionReport_2019_9-April-19-FINAL.pdf",
-		"company_website": "www.asos.com",
-		"owner": 2
-	}
+  "model": "clothes_swap.item",
+  "pk": 14,
+  "fields": {
+    "image": "https://images.squarespace-cdn.com/content/v1/599310c549fc2b19c65503ba/1551475064931-VTVFTT2HF8UVJE271T3O/ke17ZwdGBToddI8pDm48kPyXNLlGuDqo4NU7eyQ2UzV7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmUJhYbF90H-5_X8RF95sdngoH3jPrO8r-k3mB4A2c7tecaA0nuxDTtwu_qQXDjyWk/IMG_1299.JPG?format=1500w",
+    "title": "Leopard Print Cotton Shirt",
+    "description": "Worn a few times - great shirt looking for a new home.",
+    "size": "S",
+    "original_price": "\u00a345.00",
+    "category": "Blouses & Shirts",
+    "owner": 1,
+    "is_swapped": false
+  }
+},
+{
+  "model": "clothes_swap.item",
+  "pk": 15,
+  "fields": {
+    "image": "https://marketplace-images.asos.com/user/239c9742-9430-4d71-a388-d87f37197714_large.jpg",
+    "title": "Long Black Puffer",
+    "description": "Vintage Long Length Padded Puffer Jacket Black. Great Condition.",
+    "size": "M",
+    "original_price": "\u00a352.00",
+    "category": "Jackets & Coats",
+    "owner": 1,
+    "is_swapped": false
+  }
+},
+{
+  "model": "clothes_swap.item",
+  "pk": 16,
+  "fields": {
+    "image": "https://d2h1pu99sxkfvn.cloudfront.net/b0/4023911/606067828_oH4Xhitud1/P0.jpg",
+    "title": "Maroon Maxi Dress",
+    "description": "90s Maroon. Maxi Dress. Very festive colour. U.K. Size 10. Polyester, elastane and viscose. Silky fabric with a velvet panels.",
+    "size": "S",
+    "original_price": "\u00a343.00",
+    "category": "Dresses",
+    "owner": 1,
+    "is_swapped": false
+  }
+},
+{
+  "model": "clothes_swap.item",
+  "pk": 17,
+  "fields": {
+    "image": "https://d2h1pu99sxkfvn.cloudfront.net/b0/7457994/541406121_hEtSbeYMFv/P0.jpg",
+    "title": "Levi Denim Jacket",
+    "description": "Vintage Women\u2019s Levi\u2019s acid washed denim trucker jacket. Amazing wash\ud83d\udc4c. Size medium.",
+    "size": "M",
+    "original_price": "\u00a339.00",
+    "category": "Jackets & Coats",
+    "owner": 1,
+    "is_swapped": false
+  }
+},
+{
+  "model": "clothes_swap.item",
+  "pk": 18,
+  "fields": {
+    "image": "https://marketplace-images.asos.com/user/f9469de1-6505-498a-8498-49334ad11aec_large.jpg",
+    "title": "Cream Trousers",
+    "description": "Vintage Pinstripe Trousers in Cream. CONDITION - Excellent vintage condition, may be some natural signs of wear due to age.",
+    "size": "XS",
+    "original_price": "\u00a326.00",
+    "category": "Trousers",
+    "owner": 1,
+    "is_swapped": false
+  }
+},
+{
+  "model": "clothes_swap.item",
+  "pk": 19,
+  "fields": {
+    "image": "https://cdn.shopify.com/s/files/1/0350/3281/products/image_7bd266d3-bc9f-417f-ae83-8f9e92e049d2_590x.jpg?v=1579115146",
+    "title": "Grey Vintage Sweater",
+    "description": "Vintage Hard Rock Cafe Pullover. Beautiful Condition, comfy and slouchy.",
+    "size": "M",
+    "original_price": "\u00a345.00",
+    "category": "Tops & T-shirts",
+    "owner": 1,
+    "is_swapped": false
+  }
+},
+{
+  "model": "clothes_swap.item",
+  "pk": 20,
+  "fields": {
+    "image": "https://cdn.shopify.com/s/files/1/0350/3281/products/94610009_1_590x.jpg?v=1571439674",
+    "title": "Chesnut Embossed Bag",
+    "description": "Vintage deep chestnut brown handbag with patent embossed look/texture. Features a front pocket along the outside body.",
+    "size": "14\" length",
+    "original_price": "\u00a375.00",
+    "category": "Bags",
+    "owner": 1,
+    "is_swapped": false
+  }
+},
+{
+  "model": "clothes_swap.item",
+  "pk": 21,
+  "fields": {
+    "image": "https://cdn.shopify.com/s/files/1/0350/3281/products/image_35922b1a-6629-45c9-9c10-340bd5b002a6_360x.jpg?v=1578597892",
+    "title": "Pleated Black Trousers",
+    "description": "Vintage faded black high waisted lightly textured petite fit pleated trousers with side pockets, belt loops, and a partial elastic waistband.",
+    "size": "S",
+    "original_price": "\u00a339.99",
+    "category": "Trousers",
+    "owner": 1,
+    "is_swapped": false
+  }
+},
+{
+  "model": "clothes_swap.item",
+  "pk": 22,
+  "fields": {
+    "image": "https://marketplace-images.asos.com/user/ef2d071e-c7a9-4d4d-aff3-a602edfba1fb_large.jpg",
+    "title": "Black Midi Skirt",
+    "description": "Vintage 90s, High Waisted, Button Down, Pleated, Black, Maxi Skirt. BRAND: Hammer",
+    "size": "M",
+    "original_price": "\u00a328.99",
+    "category": "Skirts",
+    "owner": 1,
+    "is_swapped": false
+  }
 }
 ]
