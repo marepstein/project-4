@@ -36,10 +36,15 @@ const SwapRequests = (props) => {
     Promise.all(promises).then(swaps => setSwapRequests(swaps))
   }
 
+  // Handle Swaps!!!
+  
   function handleClick(e) {
     e.preventDefault()
     sendEmailToSwap(e)
     axios.put(`/api/items/${id}/swapapproval/`, {}, {
+      headers: { Authorization: `Bearer ${Auth.getToken()}` }
+    })
+    axios.put(`/api/items/${e.target.value}/swapapproval/`, {}, {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
       .then(() => props.history.push('/profile'))
@@ -60,18 +65,20 @@ const SwapRequests = (props) => {
   }
 
 
+  console.log(swapRequests)
+
   if (yourItem.length === 0 || swapRequests.length === 0) {
     return <div className="title">Loading</div>
   }
-  return <section className="section">
+  return <section className="section" id="swap-req-pg">
     <div id='swap-requests' className='columns has-text-centered' style={{ margin: 20 }}>
       <div className='column'>
-        <div className='title'>Your Item:</div>
+        <div className='subtitle' style={{ fontWeight: 700, color: '#000' }}>Your Item:</div>
         <div>{yourItem.title}</div>
         <img src={yourItem.image} />
       </div>
       <div className='column' id='right-column'>
-        <div className='title'>Swap Requests:</div>
+        <div className='subtitle' style={{ fontWeight: 700, color: '#000' }}>Swap Requests:</div>
         <div className='columns is-mobile is-multiline'>
           {swapRequests.map((elem, i) => {
             return <div className='column is-half' key={i}>

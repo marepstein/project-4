@@ -54,11 +54,11 @@ class SwapApprovedDetailView(APIView):
     permission_classes = (IsAuthenticated, )
 
     def put(self, request, pk):
-        request.data['owner'] = request.user.id
+        # request.data['owner'] = request.user.id
         request.data['is_swapped'] = True
         item = Item.objects.get(pk=pk)
-        if item.owner.id != request.user.id:
-            return Response(status=HTTP_401_UNAUTHORIZED)
+        # if item.owner.id != request.user.id:
+        #     return Response(status=HTTP_401_UNAUTHORIZED)
         updated_item = SwapItemSerializer(item, data=request.data)
         if updated_item.is_valid():
           updated_item.save()
