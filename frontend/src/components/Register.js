@@ -86,7 +86,7 @@ const Register = (props) => {
             <div className="control">
               <input
                 onChange={e => handleInput(e)}
-                type='text'
+                type='password'
                 name='password'
                 className='input'
               />
@@ -102,7 +102,7 @@ const Register = (props) => {
             <div className="control">
               <input
                 onChange={e => handleInput(e)}
-                type='text'
+                type='password'
                 name='password_confirmation'
                 className='input'
               />

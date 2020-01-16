@@ -30,7 +30,7 @@ const HighStreet = () => {
   }
 	
   return <div className="section">
-    <div className="container has-text-centered">
+    <div className="container has-text-centered" id="brand-pg">
       <div className="columns is-multiline">
         {highStreetBrands.map((brand, i) => {
           return <div className="container" key={i} brand={brand}>

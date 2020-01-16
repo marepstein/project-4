@@ -64,7 +64,7 @@ const Login = (props) => {
             <div className="control">
               <input
                 onChange={handleInput}
-                type="text"
+                type="password"
                 name="password"
                 className="input"
               />

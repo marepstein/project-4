@@ -105,7 +105,8 @@ h1 {
 }
 
 
-input[type='text'] {
+input[type='text'],
+input[type='password'] {
   box-sizing: border-box;
   margin-bottom: 20px;
   padding: 4px;
@@ -121,7 +122,8 @@ input[type='text'] {
 	text-align: center;
 }
 
-input[type='text']:focus {
+input[type='text']:focus,
+input[type='password']:focus {
   border-bottom: 2px solid red;
   color: red;
   transition: 0.2s ease;
