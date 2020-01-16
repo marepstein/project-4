@@ -87,7 +87,7 @@ h1 {
 }
 
 .navbar {
-	margin: 0 35px 0 35px;
+	padding: 0 35px 0 35px;
 }
 
 .form {
@@ -261,7 +261,12 @@ input[type='password']:focus {
   
   #swap-title{
     margin-top: 0;
-  }
+	}
+	
+	.navbar {
+		padding: 0 20px 0 10px; 
+		margin: 0; 
+	}
 }
 
 /* ---------------------------- */

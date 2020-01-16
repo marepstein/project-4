@@ -5,7 +5,7 @@ import UserContext from './UserContext'
 
 const Navbar = () => {
     
-  const { userInfo, setUserInfo } = useContext(UserContext)
+	const { userInfo, setUserInfo } = useContext(UserContext)
 
   const handleMenu = () => {
     const burger = document.querySelector('.burger')

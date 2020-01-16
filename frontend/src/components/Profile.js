@@ -52,8 +52,6 @@ const Profile = () => {
     setItemModal(!itemModal)
   }
 
-
-
   return <div className="section">
     <div className="container" id="profile-header">
       <div className="title is-size-3-mobile" id="profile-title"> Welcome to Green Garms, {data.username}!</div>
