@@ -64,17 +64,17 @@ const LandingPage = () => {
           <div className="container">
             <div className="columns is-multiline is-mobile">
               <div className="column is-full-mobile" id="brand-column">
-                <div className="box">
+                <Link to='/brands' className="box">
                   <div className="title is-size-4-mobile" id="box-text">Brand guide:</div>
                   <h2 className="is-size-7-mobile" id="box-text">Helping you shop sustainably</h2>
-                </div>
+                </Link>
                 <p className="box-text">Our top ranked sustainable brands across <em><strong>three categories</strong></em>. Choosing brands responsibly can contribute to a greener overall fashion future. </p>
               </div>
               <div className="column is-full-mobile" id="garm-column">
-                <div className="box">
+                <Link to='/register' className="box">
                   <div className="title  is-black is-size-5-mobile" id="box-text">Clothes Swap:</div>
                   <h2 className="is-size-7-mobile" id="box-text">A Garms for Garms Society</h2>
-                </div>
+                </Link>
                 <p className="box-text"> - Register -
                   <br /> 
 									

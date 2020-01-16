@@ -39,11 +39,11 @@ const SwapRequests = (props) => {
   function handleClick(e) {
     e.preventDefault()
     sendEmailToSwap(e)
-    axios.put(`/api/items/${id}/swapapproval/`,  {}, {
+    axios.put(`/api/items/${id}/swapapproval/`, {}, {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
       .then(() => props.history.push('/profile'))
-      .catch((err) => setError( { errors: err.response.data } ))
+      .catch((err) => setError({ errors: err.response.data }))
   }
 
   function sendEmailToSwap(e) {
@@ -64,18 +64,28 @@ const SwapRequests = (props) => {
     return <div className="title">Loading</div>
   }
   return <section className="section">
-    <h2>Your Item:</h2>
-    <div>{yourItem.title}</div>
-    <img src={yourItem.image} />
-    <h2>Swap Requests:</h2>
-    {swapRequests.map((elem, i) => {
-      return <div key={i}>
-        <div>{elem.title}</div>
-        <img src={elem.image} />
-        <button value={elem.id} name={elem.owner.email} onClick={e => handleClick(e)}>Approve Swap?</button>
+    <div id='swap-requests' className='columns has-text-centered' style={{ margin: 20 }}>
+      <div className='column'>
+        <div className='title'>Your Item:</div>
+        <div>{yourItem.title}</div>
+        <img src={yourItem.image} />
       </div>
-    }
-    )}
+      <div className='column' id='right-column'>
+        <div className='title'>Swap Requests:</div>
+        <div className='columns is-mobile is-multiline'>
+          {swapRequests.map((elem, i) => {
+            return <div className='column is-half' key={i}>
+              <div>{elem.title}</div>
+              <img src={elem.image} />
+              <button className='button is-small' value={elem.id} name={elem.owner.email} onClick={e => handleClick(e)}>Approve Swap?</button>
+            </div>
+          }
+          )}
+        </div>
+      </div>
+    </div>
+
+
   </section>
 
 }
