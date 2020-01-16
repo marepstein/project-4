@@ -45,7 +45,7 @@ const SwapPage = (props) => {
     if (yourItems.filter(elem => {
       return !elem.is_swapped
     }).length === 0) {
-      return <Link to={'/profile'}>You have nothing to swap - Click to add items!</Link>
+      return <Link style={{ color: '#000', textDecoration: 'underline', fontWeight: 800 }} to={'/profile'}>You have nothing to swap - Click to add items!</Link>
     }
   }
 
