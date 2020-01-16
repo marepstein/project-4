@@ -30,9 +30,9 @@ const ClothesSwap = () => {
 
   return (
     <div className='section'>
-      <LazyHero imageSrc="https://sgaconnections.com/wp-content/uploads/2018/09/s-l1000.jpg" minHeight='40vh' parallaxOffset={100} overflow='hidden' opacity={0} transitionDuration={0} id='swap-splash'>
+      <LazyHero imageSrc="https://www.atrafloor.com/app/uploads/2017/01/white-brick-effect-flooring-neutral.jpg" minHeight='40vh' parallaxOffset={100} overflow='hidden' opacity={0} transitionDuration={0} id='swap-splash'>
         <div>
-          <div style={{ fontSize: 65, fontWeight: 800, color: '#FFF' }}>CLOTHES SWAP</div>
+          <div id="clothes-title" style={{ fontSize: 65, fontWeight: 800, color: '#FFF' }}>CLOTHES SWAP</div>
         </div>
       </LazyHero>
       <section>
