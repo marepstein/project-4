@@ -10,15 +10,19 @@ const errorInitialState = {
   errors: ''
 }
 
-const Profile = () => {
+const Profile = (props) => {
 
   const [data, setData] = useState({})
   const { userInfo, setUserInfo } = useContext(UserContext)
   const [itemModal, setItemModal] = useState(false)
   const [error, setError] = useState(errorInitialState)
-	
+
 
   useEffect(() => {
+    callData()
+  }, [])
+
+  function callData() {
     axios.get('/api/profile', {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
@@ -27,27 +31,22 @@ const Profile = () => {
         setUserInfo(res.data)
       })
       .catch(error => console.log(error))
-  }, [])
-
-  // console.log(data.items)
+  }
 
   function handleDelete(e) {
-		console.log(e.target.value)
     axios.delete(`/api/items/${e.target.value}`, {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
-      .catch((err) => setError( { errors: err.response.data } ))
+      .then(() => callData())
+      .then(() => props.history.push('/profile'))
+      .catch((err) => setError({ errors: err.response.data }))
   }
-		
+
 
   function swapRequestersExist(elem) {
     return elem.length !== 0
   }
-        
 
-  // console.log(data)
-  // console.log(userInfo)
-	
   function toggleForm() {
     setItemModal(!itemModal)
   }
@@ -64,8 +63,9 @@ const Profile = () => {
             <div className="modal-background" onClick={toggleForm}></div>
             <div className="modal-content">
               <NewItem
-                toggleForm = {toggleForm}
-              /> 
+                toggleForm={toggleForm}
+                callData={callData}
+              />
             </div>
             <button className="modal-close is-large" aria-label="close" onClick={toggleForm}></button>
           </div>
@@ -90,9 +90,9 @@ const Profile = () => {
                 <div className="card has-text-centered" id="item-card">
                   <p className="fav-title" style={{ padding: 10 }}>{item.title}</p>
                   {swapRequestersExist(item.swap_requesters) &&
-                      <Link to={`/swaprequests/${item.id}/${item.swap_requesters.length}`} item={item}>
-                        <button className="button is-small">Swap Requests Pending!</button>
-                      </Link>}
+                    <Link to={`/swaprequests/${item.id}/${item.swap_requesters.length}`} item={item}>
+                      <button className="button is-small">Swap Requests Pending!</button>
+                    </Link>}
                   <div className="card-image">
                     <figure className="image is-5by4 is-centered">
                       <img className="image" src={item.image} />
