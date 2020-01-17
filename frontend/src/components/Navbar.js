@@ -3,15 +3,11 @@ import { Link, withRouter } from 'react-router-dom'
 import Auth from '../lib/auth'
 import UserContext from './UserContext'
 
-<<<<<<< HEAD
+
 const Navbar = () => {
-    
-	const { userInfo, setUserInfo } = useContext(UserContext)
-=======
-const Navbar = (props) => {
 
   const { userInfo, setUserInfo } = useContext(UserContext)
->>>>>>> 6e09852af58cbf39a16a9a0b677eb98c8837150c
+
 
   const handleMenu = () => {
     const burger = document.querySelector('.burger')
@@ -60,7 +56,7 @@ const Navbar = (props) => {
             {Auth.isAuthorized() &&
               <Link className="navbar-item" id="logout" to="/" onClick={handleLogout}>
                 Logout
-						</Link>}
+              </Link>}
           </div>
         </div>
       </div>
