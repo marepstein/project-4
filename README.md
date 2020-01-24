@@ -57,7 +57,7 @@ Green Garms is an app combining two main functions:
 	
 2. Brand Guide: 
 	- We also built a brand guide giving information on the sustainability of well-known fashion brands. The aim is to help users understand the impact their purchases are having. 
-	- We sourced our information at (...)
+	- We sourced our information from a number of websites, blog posts and company websites. For our rankings we used a sustainable fashion report and 
 
 (... INSERT VIDEO LINK...)
 
@@ -69,9 +69,9 @@ We started by creating a wireframe for our app and working out the essential fea
 
 (... Add wireframe pictures ...)
 
-Once we'd worked out the user story, we determined our Entity Relationship Diagrams. Given we essentially had two seperate APIs with relatively complicated functionality, we made sure to thoroughly plan out our models and relationships between them. 
+Once we'd worked out the user story, we determined our Entity Relationship Diagrams. Given we essentially had two seperate APIs with relatively complicated functionality, we made sure to thoroughly plan out our models and relationships between them. etting these right from the start was crucial as we knew it would save us time further into the project.
 
-### Our Process
+### Build
 
 With our theme and plan in place, we started by focusing on the back-end. Firstly, we built the authorization functionality together to allow registration, login and profile views. We had to use a custom user model as we needed extra fields for "owned items" and to make sure users signed up with unique email addressed. 
 
@@ -79,7 +79,7 @@ We then worked on one API each, both with their own challenges and hurdles (see 
 
 When we were comfortable the back-end was robust, we began building our front-end using React. Again we split up the different components but worked collaboratively on design. 
 
-### Hurdles & Wins
+### Hurdles & Wins / Build ?
 
 **Swap Request Functionality:** 
 
@@ -115,11 +115,92 @@ Swap Requests were also quite difficult to handle on the front end. In the Swap 
     Promise.all(promises).then(swaps => setSwapRequests(swaps))
   }
 ```
+### User Authentication
 
+To add a more personal feel to the website, we customized the Navbar and Profile page to include the user details (in this case the username). To make this easier, we used one of React's new features <strong>'createContext'</strong> and <strong>'useMemo'</strong> allowing us to pass user details across the entire app. In order for this to work, we first had to create a UserContext component which contained the following code: 
+```
+import { createContext } from 'react'
+
+const UserContext = createContext(null)
+
+export default UserContext
+
+```
+Then we were able to define the shared info in our app.js with useMemo and a GET request to the user profile in order to attain the bearer token and set it as our 'userInfo'. Once this had been done, we then passed the information trhoughout the app by wrapping our router with a User Context provider with a value of the allocated user info. This made it easier to then pass the user info into each component and to control the login and logout processes. 
+
+#### App.js 
+
+```
+ const [userInfo, setUserInfo] = useState(null)
+ const sharedInfo = useMemo(() => ({ userInfo, setUserInfo }), [userInfo, setUserInfo])
+
+	
+  useEffect(() => {
+    console.log('running')
+    // console.log(Auth.getToken())
+    if (Auth.isAuthorized()) {
+      console.log('setting user')
+      axios.get('/api/profile', {
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
+        .then(response => {
+          setUserInfo(response.data)
+          console.log('response', response.data)
+        })
+        .catch(error => {
+          console.log(error)
+          setUserInfo(null)
+          Auth.logout()
+          props.history.push('/login')
+        })
+    } else return
+  }, [])
+	
+  console.log('user', userInfo)
+
+  return <HashRouter>
+    <UserContext.Provider
+      value={sharedInfo}>
+      ...
+```
+#### To reference user info
+
+```
+const { userInfo, setUserInfo } = useContext(UserContext)
+
+```
+#### To personalize username on navbar
+
+```
+ <div className="navbar-item has-dropdown is-hoverable">
+          {userInfo ? <Link className="navbar-link is-arrowless" id="profile" to="/profile">{userInfo.username}</Link> : <div className="navbar-item is-arrowless" >Profile</div>}
+          <div className="navbar-dropdown is-boxed" style={{ marginRight: 20 }}
+```
+### Design Features 
+
+For the homepage we used a number of GIFs and created our theme of pastel and watercolour marks. We used react-reveal to animate elements and Lazy Hero to create more of an interativce UX. The majority of our design was achieved through Bulma and basic CSS, and used similar styling throughout the site in terms of colour schemes and GIFS. Additionally, we incorporated the use of modals for our new item form to make it more appealing for users as opposed to Bulmas basic forms. Given more time, we would have liked to focus on the design a bit more. 
 
 ### Bugs
+- Mobile Navbar
+- Swap requests can currently be made to your own products 
+
+### Reflection
+
+#### Wins 
+- Creating a mobile friendly app: we were keen to achieve this as, with previous projects, this had not always been possible in the time given. 
+- Styling
+- Building the back end using Python and Django, This was a completley new language and framework that we had less time to learn. 
+
+#### Challenges 
+- Time: as mentioned, given mroe time, we would have like to developed on our design across the app.
+- Data Modelling: distinguishing the entity relationships was challenging as we cerated a complex concept, however, it was a good learning process as we had to take time to really think it through. 
+- Swap Requests: (may want to add more here)
 
 
 ##### Featured piece of code 3: Controller Functions
 
-## Conclusion
+### Future Features 
+
+- More interactive brand guide with a higher populated database 
+- Incorporation of events calendar for sustainable events, using an external API 
+- A chat feature, which allows users to handle swap requests in app 
