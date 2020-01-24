@@ -59,7 +59,7 @@ Green Garms is an app combining two main functions:
 	- We also built a brand guide giving information on the sustainability of well-known fashion brands. The aim is to help users understand the impact their purchases are having. 
 	- We sourced our information from a number of websites, blog posts and company websites. For our rankings we used a sustainable fashion report and 
 
-(... INSERT VIDEO LINK...)
+![Image of desktop 'Green Garms](https://media.giphy.com/media/hQRWkxN9dKQoZ2Xe75/giphy.gif) 
 
 ## Approach Taken
 
@@ -79,7 +79,7 @@ We then worked on one API each, both with their own challenges and hurdles (see 
 
 When we were comfortable the back-end was robust, we began building our front-end using React. Again we split up the different components but worked collaboratively on design. 
 
-### Hurdles & Wins / Build ?
+### Hurdles & Wins (could delete this as have put at the end, and then this is just part of build)
 
 **Swap Request Functionality:** 
 
