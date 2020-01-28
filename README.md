@@ -196,9 +196,6 @@ For the homepage we used a number of GIFs and created our theme of pastel and wa
 - Data Modelling: distinguishing the entity relationships was challenging as we cerated a complex concept, however, it was a good learning process as we had to take time to really think it through. 
 - Swap Requests: (may want to add more here)
 
-
-##### Featured piece of code 3: Controller Functions
-
 ### Future Features 
 
 - More interactive brand guide with a higher populated database 
